@@ -1,0 +1,30 @@
+@font-face{
+    font-family: alex;
+    src: url("../fonts/AlexBrush.ttf");
+}
+
+@font-face{
+    font-family: mercy;
+    src: url("../fonts/Mercy.ttf");
+}
+
+h1, h2, h3, h4, h5{
+    font-family: alex, sans-serif;
+}
+
+body{
+    font-family: mercy, sans-serif;
+}
+
+.btn {
+    background-color: #ff3259 !important
+}
+
+
+
+
+
+
+
+
+
