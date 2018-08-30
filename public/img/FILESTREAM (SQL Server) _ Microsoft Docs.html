@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!-- saved from url=(0105)https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017 -->
+<html class="js hasSidebar hasPageActions hasBreadcrumb conceptual noTouch translated-ltr" lang="es" dir="ltr" data-authenticated="false" data-target="docs"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/17-1042c1"><link rel="stylesheet" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/override.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:title" content="FILESTREAM (SQL Server)">
+	<meta property="og:image" content="https://docs.microsoft.com/_themes/docs.theme/master/en-us/_themes/images/microsoft-header.png">
+
+
+		<meta name="breadcrumb_path" content="../../breadcrumb/toc.json?view=sql-server-2017">
+<meta name="ms.suite" content="sql">
+<meta name="ms.custom" content="">
+<meta name="ms.tgt_pltfrm" content="">
+<meta name="ms.assetid" content="9a5a8166-bcbe-4680-916c-26276253eafa">
+<meta name="ms.prod_service" content="database-engine">
+<meta name="author" content="douglaslMS">
+<meta name="ms.author" content="douglasl">
+<meta name="manager" content="craigg">
+<meta name="caps.latest.revision" content="13">
+<meta name="ms.topic" content="conceptual">
+<meta name="ms.date" content="01/11/2018">
+<meta name="ms.technology" content="filestream">
+<meta name="ms.prod" content="sql">
+<meta name="ms.reviewer" content="">
+<meta name="search.ms_sitename" content="Docs">
+<meta name="search.ms_docsetname" content="sql-content">
+<meta name="version" content="0">
+<meta name="locale" content="en-us">
+<meta name="site_name" content="Docs">
+<meta name="search.ms_product" content="SQL">
+<meta name="depot_name" content="SQL.sql-content">
+<meta name="updated_at" content="2018-08-27 10:32 PM">
+<meta name="gitcommit" content="https://github.com/MicrosoftDocs/sql-docs-pr/blob/888f3822d189b4d7d5f88cefed2e3e76de21586b/docs/relational-databases/blob/filestream-sql-server.md">
+<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/sql-docs-pr/blob/live/docs/relational-databases/blob/filestream-sql-server.md">
+<meta name="document_id" content="8bd7807f-5dde-795d-56b9-3d4b9c4187cb">
+<meta name="document_version_independent_id" content="61ca2613-e6fe-b3c2-e4d4-fbf264bbc20d">
+<meta name="monikers" content="sql-server-2016">
+<meta name="monikers" content="sql-server-2017">
+<meta name="monikers" content="sql-server-ver15">
+<meta name="monikers" content="sqlallproducts-allversions">
+<meta name="monikers" content="azuresqldb-mi-current">
+<meta name="page_type" content="conceptual">
+<meta name="toc_rel" content="toc.json?view=sql-server-2017">
+<meta name="pdf_url_template" content="https://docs.microsoft.com/pdfstore/en-us/SQL.sql-content/{branchName}{pdfName}">
+<meta name="word_count" content="2087">
+
+	<meta name="scope" content="sql">
+<link href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server" rel="canonical">
+	<title>FILESTREAM (SQL Server) |  Microsoft Docs</title>
+
+		<link rel="stylesheet" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/5317793a.site-ltr.css">
+
+	<link rel="stylesheet" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/c9b8eba2.conceptual.css">
+
+
+	<script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/analytics.js.descarga"></script><script>
+	var msDocs = {
+		data:{
+			azureHeaderLocale: 'en-us',
+			contentLocale: 'en-us',
+			contentDir: 'ltr',
+			userLocale: 'en-us',
+			userDir: 'ltr',
+			pageTemplate: 'Conceptual',
+			brand: '',
+			context: {
+
+			},
+			hasComments: true,
+			feedbackSystem: 'LiveFyre',
+			feedbackGitHubRepo: '',
+			feedbackProductUrl: '',
+			contentGitUrl: 'https://github.com/MicrosoftDocs/sql-docs/blob/live/docs/relational-databases/blob/filestream-sql-server.md',
+			
+			forceVersionPicker:false		},
+		functions:{},
+		settings:{
+			extendBreadcrumb: false,
+			enableUHFPPE: false
+		}
+	};
+	if (!('Promise' in window && 'resolve' in window.Promise && 'reject' in window.Promise && 'all' in window.Promise && 'race' in window.Promise)) {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/6ee34c01.bluebird.min.js"><\/script>');
+	}
+	if (typeof fetch !== 'function') {
+		document.write('<script src="/_themes/docs.theme/master/en-us/_themes/global/js/d9fc435c.fetch.min.js"><\/script>');
+	}
+	</script>
+	<script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/jquery-2.2.4.min.js.descarga"></script>
+	<script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/dede7c3f.localized-strings.js.descarga"></script>
+	<script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/9fda42a6.global.min.js.descarga"></script><style>
+		[data-moniker]:not([data-moniker~='sql-server-2017']) {
+			display: none !important;
+		}
+	</style><script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/jsll-4.js.descarga" async="" defer=""></script>
+
+<script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/8f-d24839" defer=""></script><style>
+			.c-uhfh input[type="search"],
+			.c-uhfh.c-sgl-stck .c-uhfh-actions .c-search input[type="search"] {
+				padding-left: 59px !important;
+			}</style><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js.descarga"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="/_chrome/commenting/master/open-commenting.ui.v1.0.2-7-g1b78816.master.min.js" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/open-commenting.ui.v1.0.2-7-g1b78816.master.min.js.descarga"></script><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js(1).descarga"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="//cdn.livefyre.com/libs/fyre.conv/v3.0.0/livefyre.min.js" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/livefyre.min.js.descarga"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="//cdn.livefyre.com/libs/sidenotes/v1.7.4/sidenotes.min.js" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/sidenotes.min.js.descarga"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="//cdn.livefyre.com/libs/identity/v1.2.3/simple/javascripts/customprofiles.min.js" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/customprofiles.min.js.descarga"></script><link rel="stylesheet" type="text/css" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/livefyre_main.css" media="all"><script type="text/javascript" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/livefyre_base.js.descarga" async="" defer=""></script><script type="text/javascript" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/livefyre_mod_main.js.descarga" async="" defer=""></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="//cdn.livefyre.com/libs/insights-emitter/v0.0.15/insights-emitter.min.js" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/insights-emitter.min.js.descarga"></script><link rel="stylesheet" type="text/css" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/sp.css" media="all"><style type="text/css" id="fyre-brand-styles-v2">.fyre-lfep2,
+.fyre-lfep2 input,
+.fyre-lfep2 textarea {
+    font-family: ;
+}
+
+.fyre-cp-form-btns .fyre-cp-form-back-btn,
+.fyre-cp-form-btns .fyre-cp-form-submit-btn {
+    background-color: #e86600;
+}
+
+.fyre-cp-link-create {
+    color: #e86600;
+}
+
+p.fyre-profile-user-comments span,
+p.fyre-profile-user-likes span {
+    color: #e86600;
+}
+
+.fyre-profile-comment-footer a {
+    color: #e86600;
+}
+
+a.fyre-profile-more-link {
+    color: #e86600;
+}
+
+.fyre-cp-form .fyre-cp-edit-save-msg {
+    color: #e86600
+}</style><script type="text/javascript" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/livefyre_mod_editor_main.js.descarga" async="" defer=""></script><link rel="stylesheet" type="text/css" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/block.css" media="all"><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js(2).descarga"></script><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js(3).descarga"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/translateelement.css"><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js(4).descarga"></script><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js(5).descarga"></script><script async="" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/t.js(6).descarga"></script><script async="" src="https://web.vortex.data.microsoft.com/collect/v1/t.js?ver=%272.1%27&amp;name=%27Ms.Webi.ContentUpdate%27&amp;time=%272018-08-28T21%3A24%3A35.413Z%27&amp;os=%27Windows%27&amp;appId=%27JS%3ADocs%27&amp;-ver=%271.0%27&amp;-impressionGuid=%27b469ae7d-f8dc-40f4-917f-bec783e1e693%27&amp;-pageName=%278bd7807f-5dde-795d-56b9-3d4b9c4187cb%27&amp;-uri=%27https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%27&amp;-market=%27en-us%27&amp;-pageTags=%27%7B%22suite%22%3A%22sql%22%2C%22custom%22%3A%22%22%2C%22pgtrgtplf%22%3A%22%22%2C%22asst%22%3A%229a5a8166-bcbe-4680-916c-26276253eafa%22%2C%22prod_service%22%3A%22database-engine%22%2C%22author%22%3A%22douglaslMS%22%2C%22pgauth%22%3A%22douglasl%22%2C%22manager%22%3A%22craigg%22%2C%22pgtop%22%3A%22conceptual%22%2C%22date%22%3A%2201%2F11%2F2018%22%2C%22technology%22%3A%22filestream%22%2C%22product%22%3A%22sql%22%2C%22reviewer%22%3A%22%22%2C%22depotname%22%3A%22SQL.sql-content%22%2C%22publishtime%22%3A%222018-08-27%2010%3A32%20PM%22%2C%22gitcommit%22%3A%22https%3A%2F%2Fgithub.com%2FMicrosoftDocs%2Fsql-docs-pr%2Fblob%2F888f3822d189b4d7d5f88cefed2e3e76de21586b%2Fdocs%2Frelational-databases%2Fblob%2Ffilestream-sql-server.md%22%2C%22giturl%22%3A%22https%3A%2F%2Fgithub.com%2FMicrosoftDocs%2Fsql-docs-pr%2Fblob%2Flive%2Fdocs%2Frelational-databases%2Fblob%2Ffilestream-sql-server.md%22%2C%22document_version_independent_id%22%3A%2261ca2613-e6fe-b3c2-e4d4-fbf264bbc20d%22%2C%22contentlocale%22%3A%22en-us%22%2C%22highContrast%22%3A%22false%22%2C%22metaTags%22%3A%7B%7D%7D%27&amp;-pageHeight=7435&amp;-vpHeight=582&amp;-vpWidth=1366&amp;-actionType=%27R%27&amp;-behavior=0&amp;-vScrollOffset=0&amp;-hScrollOffset=0&amp;-contentVer=%272.0%27&amp;-content=%27%5B%7B%22cN%22%3A%22headerArea%22%2C%22cT%22%3A%22Area_coreuiArea%22%2C%22id%22%3A%22a1Body%22%2C%22sN%22%3A1%2C%22aN%22%3A%22Body%22%7D%2C%7B%22cN%22%3A%22headerRegion%22%2C%22cT%22%3A%22Region_coreui-region%22%2C%22id%22%3A%22r1a1%22%2C%22sN%22%3A1%2C%22aN%22%3A%22a1%22%7D%2C%7B%22cN%22%3A%22headerUniversalHeader%22%2C%22cT%22%3A%22Module_coreui-universalheader%22%2C%22id%22%3A%22m1r1a1%22%2C%22sN%22%3A1%2C%22aN%22%3A%22r1a1%22%7D%2C%7B%22cN%22%3A%22Universal%20Header_cont%22%2C%22cT%22%3A%22Container%22%2C%22id%22%3A%22c2m1r1a1%22%2C%22sN%22%3A2%2C%22aN%22%3A%22m1r1a1%22%7D%2C%7B%22cN%22%3A%22GlobalNav_Logo_cont%22%2C%22cT%22%3A%22Container%22%2C%22id%22%3A%22c3c2m1r1a1%22%2C%22sN%22%3A3%2C%22aN%22%3A%22c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22CatNav_Docs_nav%22%2C%22id%22%3A%22n6c2m1r1a1%22%2C%22sN%22%3A6%2C%22aN%22%3A%22c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22Category%20nav_cont%22%2C%22cT%22%3A%22Container%22%2C%22id%22%3A%22c8c2m1r1a1%22%2C%22sN%22%3A8%2C%22aN%22%3A%22c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22CatNav_docsWindows_nav%22%2C%22id%22%3A%22n2c8c2m1r1a1%22%2C%22sN%22%3A2%2C%22aN%22%3A%22c8c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22CatNav_docsAzure_nav%22%2C%22id%22%3A%22n3c8c2m1r1a1%22%2C%22sN%22%3A3%2C%22aN%22%3A%22c8c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22CatNav_docsVisualStudio_nav%22%2C%22id%22%3A%22n4c8c2m1r1a1%22%2C%22sN%22%3A4%2C%22aN%22%3A%22c8c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22CatNav_docsOffice_nav%22%2C%22id%22%3A%22n5c8c2m1r1a1%22%2C%22sN%22%3A5%2C%22aN%22%3A%22c8c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22CatNav_docsMore_nonnav%22%2C%22id%22%3A%22nn6c8c2m1r1a1%22%2C%22sN%22%3A6%2C%22aN%22%3A%22c8c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22Header%20actions_cont%22%2C%22cT%22%3A%22Container%22%2C%22id%22%3A%22c9c2m1r1a1%22%2C%22sN%22%3A9%2C%22aN%22%3A%22c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22GlobalNav_cont%22%2C%22cT%22%3A%22Container%22%2C%22id%22%3A%22c1c9c2m1r1a1%22%2C%22sN%22%3A1%2C%22aN%22%3A%22c9c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22GlobalNav_More_nonnav%22%2C%22id%22%3A%22nn1c1c9c2m1r1a1%22%2C%22sN%22%3A1%2C%22aN%22%3A%22c1c9c2m1r1a1%22%7D%2C%7B%22cN%22%3A%22GlobalNav_Search_cont%22%2C%22cT%22%3A%22Container%22%2C%22id%22%3A%22c3c1c9c2m1r1a1%22%2C%22sN%22%3A3%2C%22aN%22%3A%22c1c9c2m1r1a1%22%7D%5D%27&amp;*baseType=%27Ms.Content.ContentUpdate%27&amp;*title=%27FILESTREAM%20(SQL%20Server)%20%7C%20Microsoft%20Docs%27&amp;*cookieEnabled=true&amp;*isJs=true&amp;*isDomComplete=false&amp;*isLoggedIn=false&amp;ext-javascript-ver=%271.1%27&amp;ext-javascript-libVer=%274.2.6%27&amp;ext-javascript-domain=%27docs.microsoft.com%27&amp;ext-javascript-msfpc=%27GUID%3De5042d59371b4e25aa9d0d62304fb05d%26HASH%3De504%26LV%3D201808%26V%3D4%26LU%3D1535491329872%27&amp;ext-javascript-userConsent=false&amp;ext-user-localId=%27t%3A05B876E661C26ACB11C87AB265C26997%27&amp;$mscomCookies=false"></script><script async="" src="https://web.vortex.data.microsoft.com/collect/v1/t.js?ver=%272.1%27&amp;name=%27Ms.Webi.PageAction%27&amp;time=%272018-08-28T21%3A24%3A36.441Z%27&amp;os=%27Windows%27&amp;appId=%27JS%3ADocs%27&amp;-ver=%271.0%27&amp;-impressionGuid=%27b469ae7d-f8dc-40f4-917f-bec783e1e693%27&amp;-pageName=%278bd7807f-5dde-795d-56b9-3d4b9c4187cb%27&amp;-uri=%27https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%27&amp;-pageTags=%27%7B%22suite%22%3A%22sql%22%2C%22custom%22%3A%22%22%2C%22pgtrgtplf%22%3A%22%22%2C%22asst%22%3A%229a5a8166-bcbe-4680-916c-26276253eafa%22%2C%22prod_service%22%3A%22database-engine%22%2C%22author%22%3A%22douglaslMS%22%2C%22pgauth%22%3A%22douglasl%22%2C%22manager%22%3A%22craigg%22%2C%22pgtop%22%3A%22conceptual%22%2C%22date%22%3A%2201%2F11%2F2018%22%2C%22technology%22%3A%22filestream%22%2C%22product%22%3A%22sql%22%2C%22reviewer%22%3A%22%22%2C%22depotname%22%3A%22SQL.sql-content%22%2C%22publishtime%22%3A%222018-08-27%2010%3A32%20PM%22%2C%22gitcommit%22%3A%22https%3A%2F%2Fgithub.com%2FMicrosoftDocs%2Fsql-docs-pr%2Fblob%2F888f3822d189b4d7d5f88cefed2e3e76de21586b%2Fdocs%2Frelational-databases%2Fblob%2Ffilestream-sql-server.md%22%2C%22giturl%22%3A%22https%3A%2F%2Fgithub.com%2FMicrosoftDocs%2Fsql-docs-pr%2Fblob%2Flive%2Fdocs%2Frelational-databases%2Fblob%2Ffilestream-sql-server.md%22%2C%22document_version_independent_id%22%3A%2261ca2613-e6fe-b3c2-e4d4-fbf264bbc20d%22%2C%22contentlocale%22%3A%22en-us%22%2C%22highContrast%22%3A%22false%22%2C%22metaTags%22%3A%7B%7D%7D%27&amp;-contentVer=%272.0%27&amp;-market=%27en-us%27&amp;-pageType=%27conceptual%27&amp;-actionType=%27O%27&amp;-behavior=300&amp;-content=%27%5B%7B%22event%22%3A%22page-focus-changed%22%2C%22value%22%3A%22blur%22%7D%5D%27&amp;*baseType=%27Ms.Content.PageAction%27&amp;*timeToAction=163278&amp;*cookieEnabled=true&amp;*isJs=true&amp;*title=%27FILESTREAM%20(SQL%20Server)%20%7C%20Microsoft%20Docs%27&amp;*isLoggedIn=false&amp;*isManual=true&amp;ext-javascript-ver=%271.1%27&amp;ext-javascript-libVer=%274.2.6%27&amp;ext-javascript-domain=%27docs.microsoft.com%27&amp;ext-javascript-msfpc=%27GUID%3De5042d59371b4e25aa9d0d62304fb05d%26HASH%3De504%26LV%3D201808%26V%3D4%26LU%3D1535491329872%27&amp;ext-javascript-userConsent=false&amp;ext-user-localId=%27t%3A05B876E661C26ACB11C87AB265C26997%27&amp;$mscomCookies=false"></script></head>
+
+<body lang="en-us" dir="ltr">
+<div class="header-holder">
+		<div id="headerAreaHolder" data-bi-name="header">    <section id="headerArea" data-m="{&quot;cN&quot;:&quot;headerArea&quot;,&quot;cT&quot;:&quot;Area_coreuiArea&quot;,&quot;id&quot;:&quot;a1Body&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;Body&quot;}">
+            <div id="headerRegion" data-region-key="headerregion" data-m="{&quot;cN&quot;:&quot;headerRegion&quot;,&quot;cT&quot;:&quot;Region_coreui-region&quot;,&quot;id&quot;:&quot;r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;a1&quot;}">
+
+    <div id="headerUniversalHeader" data-m="{&quot;cN&quot;:&quot;headerUniversalHeader&quot;,&quot;cT&quot;:&quot;Module_coreui-universalheader&quot;,&quot;id&quot;:&quot;m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;r1a1&quot;}" data-module-id="Category|headerRegion|headerRegion|headerUniversalHeader|coreui-universalheader">
+        
+
+
+
+
+        <a id="uhfSkipToMain" class="m-skip-to-main" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#main" tabindex="0" style="z-index:3000002" data-m="{&quot;cN&quot;:&quot;Skip to content_nonnav&quot;,&quot;id&quot;:&quot;nn1m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Saltar al contenido principal</font></font></a>
+
+
+<header role="banner" class="c-uhfh context-uhf c-sgl-stck c-category-header" itemscope="itemscope" data-header-footprint="/MSDocs/MSDocsHeader-DocsL1" data-ckrate="1" data-magict="true" itemtype="http://schema.org/Organization">
+    <div class="theme-light js-global-head f-closed  global-head-cont" data-m="{&quot;cN&quot;:&quot;Universal Header_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;m1r1a1&quot;}">
+		<div class="c-uhfh-gcontainer-st">
+			<button type="button" class="c-action-trigger c-glyph glyph-global-nav-button" aria-label="Header navigation menu" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;Mobile menu button_nonnav&quot;,&quot;id&quot;:&quot;nn1c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2m1r1a1&quot;}"></button>
+			<button type="button" class="c-action-trigger c-glyph glyph-arrow-htmllegacy" aria-label="Close search" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;Close Search_nonnav&quot;,&quot;id&quot;:&quot;nn2c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c2m1r1a1&quot;}"></button>
+					<a id="uhfLogo" class="c-logo c-sgl-stk-uhfLogo" itemprop="url" href="https://www.microsoft.com/" aria-label="Microsoft" data-m="{&quot;cN&quot;:&quot;GlobalNav_Logo_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c2m1r1a1&quot;}">
+						<img alt="" itemprop="logo" itemscope="itemscope" class="c-image" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/RE1Mu3b" role="presentation">
+						<span role="presentation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft</font></font></span>
+					</a>
+			<div class="f-mobile-title">
+				<button type="button" class="c-action-trigger c-glyph glyph-chevron-left" aria-label="See more menu options" data-m="{&quot;cN&quot;:&quot;Mobile back button_nonnav&quot;,&quot;id&quot;:&quot;nn4c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c2m1r1a1&quot;}"></button>
+				<span data-global-title="Microsoft home" class="js-mobile-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documentos</font></font></span>
+				<button type="button" class="c-action-trigger c-glyph glyph-chevron-right" aria-label="See more menu options" data-m="{&quot;cN&quot;:&quot;Mobile forward button_nonnav&quot;,&quot;id&quot;:&quot;nn5c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c2m1r1a1&quot;}"></button>
+			</div>
+					<div class="c-show-pipe x-hidden-vp-mobile-st">
+						<a id="uhfCatLogo" class="c-logo c-cat-logo" href="https://docs.microsoft.com/" aria-label="Docs" itemprop="url" data-m="{&quot;cN&quot;:&quot;CatNav_Docs_nav&quot;,&quot;id&quot;:&quot;n6c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c2m1r1a1&quot;}">
+								<span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documentos</font></font></span>
+						</a>
+					</div>
+				<div class="cat-logo-button-cont x-hidden">
+						<button type="button" id="uhfCatLogoButton" class="c-cat-logo-button x-hidden" aria-expanded="false" aria-label="Docs" data-m="{&quot;cN&quot;:&quot;Docs_nonnav&quot;,&quot;id&quot;:&quot;nn7c2m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							Documentos
+						</font></font></button>
+				</div>
+
+
+
+			        <nav id="uhf-g-nav" class="c-uhfh-gnav" role="presentation" data-m="{&quot;cN&quot;:&quot;Category nav_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c2m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c2m1r1a1&quot;}">
+            <ul class="js-paddle-items">
+                    <li class="single-link js-nav-menu x-hidden-none-mobile-vp">
+                         <a class="c-uhf-nav-link" href="https://docs.microsoft.com/" data-m="{&quot;cN&quot;:&quot;CatNav_Home_nav&quot;,&quot;id&quot;:&quot;n1c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Casa </font></font></a>
+                    </li>
+                                        <li class="single-link js-nav-menu">
+                            <a id="c-shellmenu_0" class="c-uhf-nav-link" href="https://docs.microsoft.com/windows" data-m="{&quot;cN&quot;:&quot;CatNav_docsWindows_nav&quot;,&quot;id&quot;:&quot;n2c8c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows</font></font></a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="c-shellmenu_1" class="c-uhf-nav-link" href="https://docs.microsoft.com/azure/" data-m="{&quot;cN&quot;:&quot;CatNav_docsAzure_nav&quot;,&quot;id&quot;:&quot;n3c8c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft Azure</font></font></a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="c-shellmenu_2" class="c-uhf-nav-link" href="https://docs.microsoft.com/visualstudio/products" data-m="{&quot;cN&quot;:&quot;CatNav_docsVisualStudio_nav&quot;,&quot;id&quot;:&quot;n4c8c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estudio visual</font></font></a>
+                        </li>
+                        <li class="single-link js-nav-menu">
+                            <a id="c-shellmenu_3" class="c-uhf-nav-link" href="https://docs.microsoft.com/office/" data-m="{&quot;cN&quot;:&quot;CatNav_docsOffice_nav&quot;,&quot;id&quot;:&quot;n5c8c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Oficina</font></font></a>
+                        </li>
+                        <li class="nested-menu">
+                            <div class="c-uhf-menu js-nav-menu">
+                                <button type="button" id="c-shellmenu_4" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;CatNav_docsMore_nonnav&quot;,&quot;id&quot;:&quot;nn6c8c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}" style="white-space:nowrap"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Más</font></font></button>
+
+                                <ul class="" data-class-idn="" aria-hidden="true" data-m="{&quot;cN&quot;:&quot;docsMore_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c8c2m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsNET_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_5" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/dotnet/" data-m="{&quot;cN&quot;:&quot;CatNav_docsNET_nav&quot;,&quot;id&quot;:&quot;n1c1c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.RED</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsASPNET_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c7c8c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_6" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/aspnet/" data-m="{&quot;cN&quot;:&quot;CatNav_docsASPNET_nav&quot;,&quot;id&quot;:&quot;n1c2c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ASP.NET</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsCpp_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c7c8c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_7" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/cpp/" data-m="{&quot;cN&quot;:&quot;CatNav_docsCpp_nav&quot;,&quot;id&quot;:&quot;n1c3c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">C ++</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsDynamics_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c7c8c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_8" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/dynamics365/" data-m="{&quot;cN&quot;:&quot;CatNav_docsDynamics_nav&quot;,&quot;id&quot;:&quot;n1c4c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dynamics 365</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsEducation_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c7c8c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_9" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/education/" data-m="{&quot;cN&quot;:&quot;CatNav_docsEducation_nav&quot;,&quot;id&quot;:&quot;n1c5c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Educación</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsEM_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c7c8c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_10" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/enterprise-mobility-security/" data-m="{&quot;cN&quot;:&quot;CatNav_docsEM_nav&quot;,&quot;id&quot;:&quot;n1c6c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Enterprise Mobility + Seguridad</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsHealthVault_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c7c8c2m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_11" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/healthvault/" data-m="{&quot;cN&quot;:&quot;CatNav_docsHealthVault_nav&quot;,&quot;id&quot;:&quot;n1c7c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">HealthVault</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsIntune_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c7c8c2m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_12" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/intune/" data-m="{&quot;cN&quot;:&quot;CatNav_docsIntune_nav&quot;,&quot;id&quot;:&quot;n1c8c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Afinado</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsNuget_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c9c7c8c2m1r1a1&quot;,&quot;sN&quot;:9,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_13" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/nuget/" data-m="{&quot;cN&quot;:&quot;CatNav_docsNuget_nav&quot;,&quot;id&quot;:&quot;n1c9c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c9c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">NuGet</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsPowerShell_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c10c7c8c2m1r1a1&quot;,&quot;sN&quot;:10,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_14" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/powershell/" data-m="{&quot;cN&quot;:&quot;CatNav_docsPowerShell_nav&quot;,&quot;id&quot;:&quot;n1c10c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c10c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Potencia Shell</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsSCCM_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c11c7c8c2m1r1a1&quot;,&quot;sN&quot;:11,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_15" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/sccm/" data-m="{&quot;cN&quot;:&quot;CatNav_docsSCCM_nav&quot;,&quot;id&quot;:&quot;n1c11c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c11c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">System Center Configuration Manager</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsSql_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c12c7c8c2m1r1a1&quot;,&quot;sN&quot;:12,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_16" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/sql/" data-m="{&quot;cN&quot;:&quot;CatNav_docsSql_nav&quot;,&quot;id&quot;:&quot;n1c12c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c12c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">servidor SQL</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsSystemCenter_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c13c7c8c2m1r1a1&quot;,&quot;sN&quot;:13,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_17" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/system-center/" data-m="{&quot;cN&quot;:&quot;CatNav_docsSystemCenter_nav&quot;,&quot;id&quot;:&quot;n1c13c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c13c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Centro de sistema</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;docsXamarin_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c14c7c8c2m1r1a1&quot;,&quot;sN&quot;:14,&quot;aN&quot;:&quot;c7c8c2m1r1a1&quot;}">
+            <a id="c-shellmenu_18" class="js-subm-uhf-nav-link" href="https://developer.xamarin.com/" data-m="{&quot;cN&quot;:&quot;CatNav_docsXamarin_nav&quot;,&quot;id&quot;:&quot;n1c14c7c8c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c14c7c8c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xamarin</font></font></a>
+            
+        </li>
+                                                                        
+                                </ul>
+                            </div>
+                        </li>
+
+                <li id="overflow-menu" class="overflow-menu x-hidden">
+                        <div class="c-uhf-menu js-nav-menu">
+        <button data-m="{&quot;pid&quot;:&quot;More&quot;,&quot;id&quot;:&quot;nn8c8c2m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c8c2m1r1a1&quot;}" type="button" aria-label="More" aria-expanded="false" style="white-space:nowrap"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Más</font></font></button>
+        <ul id="overflow-menu-list" aria-hidden="true" class="overflow-menu-list">
+        </ul>
+    </div>
+
+                </li>
+                            </ul>
+            
+        </nav>
+
+
+				<div class="c-uhfh-actions" data-m="{&quot;cN&quot;:&quot;Header actions_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c9c2m1r1a1&quot;,&quot;sN&quot;:9,&quot;aN&quot;:&quot;c2m1r1a1&quot;}">
+					<div class="wf-menu">        <nav id="uhf-c-nav" role="presentation" data-m="{&quot;cN&quot;:&quot;GlobalNav_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c9c2m1r1a1&quot;}">
+            <ul class="js-paddle-items">
+                <li>
+                    <div class="c-uhf-menu js-nav-menu">
+                        <button type="button" class="c-button-logo all-ms-nav" aria-label="All Microsoft expand to see list of Microsoft products and services" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_nonnav&quot;,&quot;id&quot;:&quot;nn1c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c9c2m1r1a1&quot;}" style="white-space: nowrap"> <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Todo Microsoft</font></font></span></button>
+                        <ul class="f-multi-column f-multi-column-6" aria-hidden="true" data-m="{&quot;cN&quot;:&quot;More_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c1c9c2m1r1a1&quot;}">
+                                    <li class="c-w0-contr">
+            <ul class="c-w0">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Office_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c1c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_19" class="js-subm-uhf-nav-link" href="https://products.office.com/en-us/home" data-m="{&quot;cN&quot;:&quot;W0Nav_Office_nav&quot;,&quot;id&quot;:&quot;n1c1c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c1c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Oficina</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Windows_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_20" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/windows/" data-m="{&quot;cN&quot;:&quot;W0Nav_Windows_nav&quot;,&quot;id&quot;:&quot;n1c2c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Surface_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_21" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/surface" data-m="{&quot;cN&quot;:&quot;W0Nav_Surface_nav&quot;,&quot;id&quot;:&quot;n1c3c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Superficie</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Xbox_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_22" class="js-subm-uhf-nav-link" href="https://www.xbox.com/" data-m="{&quot;cN&quot;:&quot;W0Nav_Xbox_nav&quot;,&quot;id&quot;:&quot;n1c4c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xbox</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Deals_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_23" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/b/sale?icid=gm_nav_L0_salepage" data-m="{&quot;cN&quot;:&quot;W0Nav_Deals_nav&quot;,&quot;id&quot;:&quot;n1c5c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ofertas</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Support_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+            <a id="l1_support" class="js-subm-uhf-nav-link" href="https://support.microsoft.com/en-us" data-m="{&quot;cN&quot;:&quot;W0Nav_Support_nav&quot;,&quot;id&quot;:&quot;n1c6c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apoyo</font></font></a>
+            
+        </li>
+            </ul>
+        </li>
+
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Software</font></font></button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Software_WindowsApps_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c7c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_27" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/windows/windows-10-apps" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Software_WindowsApps_nav&quot;,&quot;id&quot;:&quot;n1c2c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c7c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Aplicaciones de Windows</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Software_OneDrive_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c7c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_28" class="js-subm-uhf-nav-link" href="https://onedrive.live.com/about/en-us/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Software_OneDrive_nav&quot;,&quot;id&quot;:&quot;n1c3c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c7c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">OneDrive</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Software_Outlook_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c7c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_29" class="js-subm-uhf-nav-link" href="https://outlook.live.com/owa/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Software_Outlook_nav&quot;,&quot;id&quot;:&quot;n1c4c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c7c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">panorama</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Software_Skype_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c7c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_30" class="js-subm-uhf-nav-link" href="https://www.skype.com/en/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Software_Skype_nav&quot;,&quot;id&quot;:&quot;n1c5c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c7c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Skype</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Software_OneNote_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c7c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_31" class="js-subm-uhf-nav-link" href="https://www.onenote.com/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Software_OneNote_nav&quot;,&quot;id&quot;:&quot;n1c6c7c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c7c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Una nota</font></font></a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cN&quot;:&quot;PCsAndDevices_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;cN&quot;:&quot;GlobalNav_PCsAndDevices_nonnav&quot;,&quot;id&quot;:&quot;nn1c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c8c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PC y dispositivos  </font></font></button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_PCsAndDevices_PCsAndTablets_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c8c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_33" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/windows/devices" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_PCsAndDevices_PCsAndTablets_nav&quot;,&quot;id&quot;:&quot;n1c2c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c8c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PC y tabletas</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_PCAndDevices_Accessories_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c8c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_34" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/accessories/en-us" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_PCAndDevices_Accessories_nav&quot;,&quot;id&quot;:&quot;n1c3c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c8c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Accesorios</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_PCsAndDevices_VMAndMixedReality_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c8c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_35" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/b/virtualreality?icid=TopNavVirtualReality" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_PCsAndDevices_VMAndMixedReality_nav&quot;,&quot;id&quot;:&quot;n1c4c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c8c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Realidad virtual y realidad mixta</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_PCsAndDevices_MicrosoftHololens_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c8c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_36" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/hololens" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_PCsAndDevices_MicrosoftHololens_nav&quot;,&quot;id&quot;:&quot;n1c5c8c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c8c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft HoloLens</font></font></a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:9,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c9c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Entretenimiento</font></font></button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Products_DevicesAndXbox_XboxAndGames_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c9c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_38" class="js-subm-uhf-nav-link" href="https://www.xbox.com/en-us/games/xbox-one?xr=shellnav" data-m="{&quot;cN&quot;:&quot;GlobalNav_Products_DevicesAndXbox_XboxAndGames_nav&quot;,&quot;id&quot;:&quot;n1c2c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c9c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Juegos de Xbox</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Entertainment_PCGames_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c9c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_39" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/windows/windows-10-games" data-m="{&quot;cN&quot;:&quot;GlobalNav_Entertainment_PCGames_nav&quot;,&quot;id&quot;:&quot;n1c3c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c9c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">juegos de PC</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Entertainment_WindowsDigitalGames_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c9c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_40" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/games/windows?icid=TopNavWindowsGames" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Entertainment_WindowsDigitalGames_nav&quot;,&quot;id&quot;:&quot;n1c4c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c9c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Juegos digitales de Windows</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Entertainment_MoviesAndTV_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c9c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_41" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/movies-and-tv?icid=TopNavMoviesAndTv" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Entertainment_MoviesAndTV_nav&quot;,&quot;id&quot;:&quot;n1c5c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c9c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Películas y TV</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Entertainment_Books_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c9c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_42" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/books" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Entertainment_Books_nav&quot;,&quot;id&quot;:&quot;n1c6c9c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c9c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libros</font></font></a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:10,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Negocio</font></font></button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Business_MicrosoftAzure_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_44" class="js-subm-uhf-nav-link" href="https://azure.microsoft.com/en-us/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Business_MicrosoftAzure_nav&quot;,&quot;id&quot;:&quot;n1c2c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft Azure</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Business_MicrosoftDynamics365_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_45" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/dynamics365/home" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Business_MicrosoftDynamics365_nav&quot;,&quot;id&quot;:&quot;n1c3c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft Dynamics 365</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Business_Microsoft365_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_46" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/microsoft-365/?omkt=en-US" data-m="{&quot;cN&quot;:&quot;GlobalNav_Business_Microsoft365_nav&quot;,&quot;id&quot;:&quot;n1c4c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft 365</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Products_ForBusiness_CloudPlatform_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_47" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/cloud-platform" data-m="{&quot;cN&quot;:&quot;GlobalNav_Products_ForBusiness_CloudPlatform_nav&quot;,&quot;id&quot;:&quot;n1c5c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Plataforma en la nube</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Business_Enterprise_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_48" class="js-subm-uhf-nav-link" href="https://enterprise.microsoft.com/en-us/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Business_Enterprise_nav&quot;,&quot;id&quot;:&quot;n1c6c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Empresa</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Business_DataPlatform_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c7c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c10c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_49" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/sql-server/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Business_DataPlatform_nav&quot;,&quot;id&quot;:&quot;n1c7c10c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c7c10c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Plataforma de datos</font></font></a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:11,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c11c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Desarrollador y TI  </font></font></button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_.Net_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c11c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_51" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/net/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_.Net_nav&quot;,&quot;id&quot;:&quot;n1c2c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c11c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.RED</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DevelopersAndIT_VisualStudio_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c11c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_52" class="js-subm-uhf-nav-link" href="https://visualstudio.microsoft.com/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DevelopersAndIT_VisualStudio_nav&quot;,&quot;id&quot;:&quot;n1c3c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c11c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Estudio visual</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_WindowsDevCenter_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c11c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_53" class="js-subm-uhf-nav-link" href="https://developer.microsoft.com/en-us/windows" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_WindowsDevCenter_nav&quot;,&quot;id&quot;:&quot;n1c4c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c11c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows Dev Center</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_DeveloperAndIT_Docs.microsoft.com_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c11c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_54" class="js-subm-uhf-nav-link" href="https://docs.microsoft.com/en-us/" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_DeveloperAndIT_Docs.microsoft.com_nav&quot;,&quot;id&quot;:&quot;n1c5c11c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c11c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documentos</font></font></a>
+            
+        </li>
+            </ul>
+            
+        </li>
+        <li class="f-sub-menu js-nav-menu nested-menu" data-m="{&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:12,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}">
+
+            <button type="button" role="presentation" f-multi-parent="true" aria-expanded="false" data-m="{&quot;id&quot;:&quot;nn1c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c12c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Otro</font></font></button>
+            <ul aria-hidden="true" role="presentation">
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Other_MicrosoftStore_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c2c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c12c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_56" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/b/home" data-m="{&quot;cN&quot;:&quot;GlobalNav_Other_MicrosoftStore_nav&quot;,&quot;id&quot;:&quot;n1c2c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c2c12c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Microsoft Store</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Products_SoftwareAndServices_FreeDownloadsAndSecurity_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c12c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_57" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/download/default.aspx" data-m="{&quot;cN&quot;:&quot;GlobalNav_Products_SoftwareAndServices_FreeDownloadsAndSecurity_nav&quot;,&quot;id&quot;:&quot;n1c3c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c12c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descargas gratuitas y seguridad</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Products_ForStudentsAndEducators_Education_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c4c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c12c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_58" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/education?icid=CNavMSCOML0_Studentsandeducation" data-m="{&quot;cN&quot;:&quot;GlobalNav_Products_ForStudentsAndEducators_Education_nav&quot;,&quot;id&quot;:&quot;n1c4c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c4c12c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Educación</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;More_Other_Store_Locations_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c5c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;c12c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_59" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/locations/find-a-store?icid=TopNavStoreLocations" data-m="{&quot;cN&quot;:&quot;GlobalNav_More_Other_Store_Locations_nav&quot;,&quot;id&quot;:&quot;n1c5c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c5c12c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tiendas</font></font></a>
+            
+        </li>
+        <li class="js-nav-menu single-link" data-m="{&quot;cN&quot;:&quot;Store_More_GiftCards_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c6c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c12c2c1c9c2m1r1a1&quot;}">
+            <a id="shellmenu_60" class="js-subm-uhf-nav-link" href="https://www.microsoft.com/en-us/store/b/gift-cards" data-m="{&quot;cN&quot;:&quot;GlobalNav_Store_More_GiftCards_nav&quot;,&quot;id&quot;:&quot;n1c6c12c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c6c12c2c1c9c2m1r1a1&quot;}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tarjetas de regalo</font></font></a>
+            
+        </li>
+            </ul>
+            
+        </li>
+                                                            <li class="f-multi-column-info">
+                                    <a data-m="{&quot;cN&quot;:&quot;View all_nav&quot;,&quot;id&quot;:&quot;n13c2c1c9c2m1r1a1&quot;,&quot;sN&quot;:13,&quot;aN&quot;:&quot;c2c1c9c2m1r1a1&quot;}" href="https://www.microsoft.com/en-us/sitemap.aspx" aria-label="View all" class="c-glyph"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ver todo</font></font></a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+</div>
+                <form class="c-search" autocomplete="off" id="searchForm" name="searchForm" role="search" action="https://docs.microsoft.com/en-us/search/index" method="GET" title="Buscar" data-seautosuggest="{&quot;queryParams&quot;:{&quot;market&quot;:&quot;en-us&quot;,&quot;clientId&quot;:&quot;7F27B536-CF6B-4C65-8638-A0F8CBDFCA65&quot;,&quot;sources&quot;:&quot;Microsoft-Terms,Iris-Products,DCatAll-Products&quot;,&quot;filter&quot;:&quot;+ClientType:StoreWeb&quot;,&quot;counts&quot;:&quot;5,1,5&quot;},&quot;familyNames&quot;:{&quot;Apps&quot;:&quot;App&quot;,&quot;Books&quot;:&quot;Book&quot;,&quot;Bundles&quot;:&quot;Bundle&quot;,&quot;Devices&quot;:&quot;Device&quot;,&quot;Fees&quot;:&quot;Fee&quot;,&quot;Games&quot;:&quot;Game&quot;,&quot;MusicAlbums&quot;:&quot;Album&quot;,&quot;MusicTracks&quot;:&quot;Song&quot;,&quot;MusicVideos&quot;:&quot;Video&quot;,&quot;MusicArtists&quot;:&quot;Artist&quot;,&quot;OperatingSystem&quot;:&quot;Operating System&quot;,&quot;Software&quot;:&quot;Software&quot;,&quot;Movies&quot;:&quot;Movie&quot;,&quot;TV&quot;:&quot;TV&quot;,&quot;CSV&quot;:&quot;Gift Card&quot;,&quot;VideoActor&quot;:&quot;Actor&quot;}}" data-seautosuggestapi="https://www.microsoft.com/services/api/v3/suggest" data-m="{&quot;cN&quot;:&quot;GlobalNav_Search_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c1c9c2m1r1a1&quot;}" aria-expanded="false">
+                    <input id="cli_shellHeaderSearchInput" aria-label="Search" aria-autocomplete="list" aria-controls="universal-header-search-auto-suggest-transparent" aria-owns="universal-header-search-auto-suggest-ul" type="search" name="search" placeholder="Search" data-m="{&quot;cN&quot;:&quot;SearchBox_nav&quot;,&quot;id&quot;:&quot;n1c3c1c9c2m1r1a1&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;c3c1c9c2m1r1a1&quot;}"><div class="x-screen-reader" aria-live="assertive"></div>
+                    <button id="search" aria-label="Search" class="c-glyph" data-m="{&quot;cN&quot;:&quot;Search_nav&quot;,&quot;id&quot;:&quot;n2c3c1c9c2m1r1a1&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;c3c1c9c2m1r1a1&quot;}" data-bi-dnt="true" data-bi-mto="true" aria-expanded="false">
+                        <span role="presentation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Buscar</font></font></span>
+                    </button>
+                    <div class="m-auto-suggest" id="universal-header-search-auto-suggest-transparent" role="group">
+                        <ul class="c-menu" id="universal-header-search-auto-suggest-ul" aria-hidden="true" data-bi-dnt="true" data-bi-mto="true" data-js-auto-suggest-position="default" role="listbox" data-tel="jsll" data-m="{&quot;cN&quot;:&quot;search suggestions_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c3c3c1c9c2m1r1a1&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;c3c1c9c2m1r1a1&quot;}"></ul>
+                    </div>
+                    
+                <input name="scope" hidden=""><a class="search-scope" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#" role="button" title="El filtro de búsqueda es &quot;sql&quot;.  Toca para eliminar." style=""><span class="search-scope-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">sql</font></font></span> <span class="docon docon-navigate-close"></span></a></form>
+            <button data-m="{&quot;cN&quot;:&quot;cancel-search&quot;,&quot;pid&quot;:&quot;Cancel Search&quot;,&quot;id&quot;:&quot;nn4c1c9c2m1r1a1&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;c1c9c2m1r1a1&quot;}" id="cancel-search" class="cancel-search" aria-label="Cancel Search">
+                <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancelar</font></font></span>
+            </button>
+					
+				<div class="auth-control loaded">
+	<a class="auth-main docs-sign-in" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#" aria-label="Sign in" title="Registrarse">
+		<div class="auth-title sign-in"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrarse</font></font></div>
+	</a>
+</div></div>			
+		</div>
+        
+        
+    </div>
+    
+</header>
+
+
+
+
+    </div>
+    </div>
+
+    </section>
+</div>
+	<div class="content-header uhf-container has-padding" data-bi-name="content-header">
+		<ul class="breadcrumbs" data-bi-name="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList" role="navigation" aria-label="Breadcrumb"><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="https://docs.microsoft.com/en-us/?view=sql-server-2017"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documentos</font></font></a></li><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="https://docs.microsoft.com/en-us/sql/index?view=sql-server-2017"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SQL</font></font></a></li><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a itemprop="item" href="https://docs.microsoft.com/en-us/sql/relational-databases/database-features?view=sql-server-2017"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bases de datos relacionales</font></font></a></li><li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="mobile-breadcrumb"><a itemprop="item" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/binary-large-object-blob-data-sql-server?view=sql-server-2017"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Blobs</font></font></a></li></ul>
+		<div class="content-header-controls exit-focus">
+			<button type="button" class="ap-collapse-behavior ap-expanded button-border" data-bi-name="ap-collapse">
+				<span class="docon docon-exit-mode"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+Salir del modo de enfoque			</font></font></button>
+			
+		</div>
+		<div class="content-header-controls">
+			<button type="button" class="contents-button button-border" data-bi-name="contents-expand">
+				<span class="docon docon-menu"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+Contenido			</font></font></button>
+		</div>
+		<div class="action-bar">
+			<ul class="action-list">
+						<li>
+							<a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#comments-container" id="comments-link" data-bi-name="comments">
+								<span class="docon docon-comment-lines" aria-hidden="true"></span><span class="action-item-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Realimentación</font></font></span>
+							</a>
+						</li>
+							<li id="contenteditbtn">
+									<a href="https://github.com/MicrosoftDocs/sql-docs/blob/live/docs/relational-databases/blob/filestream-sql-server.md" title="Editar este documento" data-bi-name="edit" data-original_content_git_url="https://github.com/MicrosoftDocs/sql-docs-pr/blob/live/docs/relational-databases/blob/filestream-sql-server.md">
+									<span class="docon docon-edit-outline" aria-hidden="true"></span><span class="action-item-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Editar</font></font></span>
+								</a>
+							</li>
+				<li>
+					<div class="sharing dropdown has-caret" auto-align="">
+						<a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#" class="dropdown-trigger" aria-haspopup="true" aria-controls="sharing-menu" aria-expanded="false" title="Comparte este documento" data-bi-name="share">
+							<span class="docon docon-sharing" aria-hidden="true"></span><span class="action-item-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compartir</font></font></span>
+						</a>
+						<div class="dropdown-menu" id="sharing-menu" role="menu">
+							<ul data-bi-name="share-links">
+								<li><a class="share-twitter" data-bi-name="twitter" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%26WT.mc_id%3Dtwitter&amp;text=FILESTREAM%20(SQL%20Server)%20%7C%20Microsoft%20Docs&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%26WT.mc_id%3Dtwitter"><span class="docon docon-brand-twitter" aria-hidden="true"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gorjeo</font></font></a></li>
+								<li><a class="share-linkedin" data-bi-name="linkedin" href="https://www.linkedin.com/cws/share?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%26WT.mc_id%3Dlinkedin"><span class="docon docon-brand-linkedin" aria-hidden="true"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">LinkedIn</font></font></a></li>
+								<li><a class="share-facebook" data-bi-name="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%26WT.mc_id%3Dfacebook"><span class="docon docon-brand-facebook" aria-hidden="true"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Facebook</font></font></a></li>
+								<li><a class="share-email" data-bi-name="email" href="mailto:?subject=%5BShared%20Article%5D%20FILESTREAM%20(SQL%20Server)%20%7C%20Microsoft%20Docs&amp;body=FILESTREAM%20(SQL%20Server)%20%7C%20Microsoft%20Docs%0A%0Ahttps%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fsql%2Frelational-databases%2Fblob%2Ffilestream-sql-server%3Fview%3Dsql-server-2017%26WT.mc_id%3Demail"><span class="docon docon-mail-message-fill" aria-hidden="true"></span>Email</a></li>
+							</ul>
+						</div>
+					</div>
+				</li>
+				<li>
+					<button class="toggle-theme" aria-label="toggle-theme" data-bi-name="select-theme"><span class="docon docon-moon"></span><span class="action-item-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Oscuro</font></font></span></button>
+				</li>
+			</ul>
+			<button type="button" class="contents-button" aria-label="Contents" data-bi-name="contents-expand-">
+				<span class="docon docon-editor-list-bullet"></span><span>Contents</span>
+			</button>
+		</div>
+	</div>
+	<div id="disclaimer-holder" class="disclaimer-holder"></div>
+	</div>
+
+	<div class="mainContainer uhf-container  has-top-padding " data-bi-name="body">
+		
+		<div class="columns ">
+
+			<section class="primary-holder column is-two-thirds-tablet is-three-quarters-desktop">
+				<div class="columns ">
+
+					<div id="page-actions" class="right-container column is-one-quarter is-one-fifth-desktop is-hidden-mobile is-hidden-tablet-only" data-bi-name="pageactions" role="complementary" aria-label="Page Actions">
+							<nav id="side-doc-outline" class="doc-outline" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation" style="width: 141.047px; top: 121px; bottom: 24px;">
+								<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En este articulo</font></font></h3>
+							<ol><li class="selected"><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#when-to-use-filestream"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cuándo usar FILESTREAM</font></font></a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#filestream-storage"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Almacenamiento FILESTREAM</font></font></a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#dual"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceso a datos BLOB con Transact-SQL y acceso de transmisión de sistema de archivos</font></font></a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#related-tasks"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tareas relacionadas</font></font></a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#related-content"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">contenido relacionado</font></font></a></li></ol></nav>
+					</div>
+
+
+				<div id="main-column" class="column  is-full is-four-fifths-desktop ">
+					
+					<main id="main" role="main" class="content" data-bi-name="content" lang="en-us" dir="ltr">
+
+
+
+						<div class="moniker-picker" data-bi-name="moniker-picker">
+		<button class="products" id="ax-2" aria-haspopup="true" aria-controls="ax-3" aria-expanded="false">
+			<span class="visually-hidden">Selected Version</span>
+			<span aria-hidden="true">SQL Server 2017</span>
+		</button>
+		<div class="products" id="ax-3" role="menu" aria-labelledby="ax-2" style="z-index: 5000">
+			<span aria-hidden="true">Product</span>
+			<ul aria-label="Product"><li>
+				<button class="versions" id="ax-18" role="menuitem" aria-haspopup="true" aria-controls="ax-19" aria-expanded="false" tabindex="-1">
+					All SQL
+				</button>
+				<div class="versions" id="ax-19" role="menu" aria-labelledby="ax-18">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sqlallproducts-allversions" aria-label="All SQL" data-default="true" tabindex="-1">Hide nothing</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-20" role="menuitem" aria-haspopup="true" aria-controls="ax-21" aria-expanded="false" tabindex="-1">
+					Analytics Platform System (PDW)
+				</button>
+				<div class="versions" id="ax-21" role="menu" aria-labelledby="ax-20">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=aps-pdw-2016-au7" aria-label="Analytics Platform System 2016-AU7" data-default="true" tabindex="-1">2016-AU7</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=aps-pdw-2016" aria-label="Analytics Platform System 2016-AU6" data-default="false" tabindex="-1">2016-AU6</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-22" role="menuitem" aria-haspopup="true" aria-controls="ax-23" aria-expanded="false" tabindex="-1">
+					SQL Data Warehouse
+				</button>
+				<div class="versions" id="ax-23" role="menu" aria-labelledby="ax-22">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=azure-sqldw-latest" aria-label="SQL Data Warehouse-latest" data-default="true" tabindex="-1">latest</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-24" role="menuitem" aria-haspopup="true" aria-controls="ax-25" aria-expanded="false" tabindex="-1">
+					SQL Database Logical Server
+				</button>
+				<div class="versions" id="ax-25" role="menu" aria-labelledby="ax-24">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=azuresqldb-current" aria-label="Azure SQL Database - current" data-default="true" tabindex="-1">current</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-26" role="menuitem" aria-haspopup="true" aria-controls="ax-27" aria-expanded="false" tabindex="-1">
+					SQL Database Managed Instance
+				</button>
+				<div class="versions" id="ax-27" role="menu" aria-labelledby="ax-26">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=azuresqldb-mi-current" aria-label="Azure SQL Database Managed Instance Current" data-default="true" tabindex="-1">current</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-28" role="menuitem" aria-haspopup="true" aria-controls="ax-29" aria-expanded="false" tabindex="-1">
+					SQL Server
+				</button>
+				<div class="versions" id="ax-29" role="menu" aria-labelledby="ax-28">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-ver15" aria-label="SQL Server vNext" data-default="false" tabindex="-1">vNext</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017" aria-label="SQL Server 2017" data-default="true" tabindex="-1">2017</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2016" aria-label="SQL Server 2016" data-default="false" tabindex="-1">2016</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2014" aria-label="SQL Server 2014" data-default="false" tabindex="-1">2014</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-30" role="menuitem" aria-haspopup="true" aria-controls="ax-31" aria-expanded="false" tabindex="-1">
+					SQL Server on Linux
+				</button>
+				<div class="versions" id="ax-31" role="menu" aria-labelledby="ax-30">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-linux-ver15" aria-label="SQL Server Linux vNext" data-default="false" tabindex="-1">vNext</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-linux-2017" aria-label="SQL Server on Linux 2017" data-default="true" tabindex="-1">2017</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li></ul>
+		</div></div><h1 id="filestream-sql-server" sourcefile="relational-databases/blob/filestream-sql-server.md" sourcestartlinenumber="23" sourceendlinenumber="23" class="x-hidden-focus"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM (SQL Server)</font></font></h1>
+
+						<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+							<li class="displayDate">
+								<span aria-hidden="true" class="docon docon-calendar"></span>
+								<time role="presentation" datetime="2018-01-11T00:00:00.000Z" data-article-date-source="ms.date"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">01/10/2018</font></font></time>
+							</li>
+								<li class="readingTime">
+									<span aria-hidden="true" class="docon docon-clock"></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+									10 minutos para leer
+								</font></font></li>
+							<li class="contributors-holder">
+								<span class="contributors-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Colaboradores</font></font></span>
+								<ul class="contributors" data-bi-name="contributors">
+											<li><a href="https://github.com/douglaslMS" title="Douglas Laudenschlager" data-bi-name="contributorprofile"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/douglaslMS.png" data-src="https://github.com/douglaslMS.png?size=32" alt="Douglas Laudenschlager"></a></li>
+											<li><a href="https://github.com/MightyPen" title="Gene Milener" data-bi-name="contributorprofile"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/MightyPen.png" data-src="https://github.com/MightyPen.png?size=32" alt="Gene Milener"></a></li>
+											<li><a href="https://github.com/craigg-msft" title="Craig Guyer" data-bi-name="contributorprofile"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/craigg-msft.png" data-src="https://github.com/craigg-msft.png?size=32" alt="Craig Guyer"></a></li>
+											<li><a href="https://github.com/GitHubber17" title="Beth-Anne Harvey" data-bi-name="contributorprofile"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/GitHubber17.png" data-src="https://github.com/GitHubber17.png?size=32" alt="Beth-Anne Harvey"></a></li>
+											<li><a href="https://github.com/MashaMSFT" title="mashathomas" data-bi-name="contributorprofile"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/MashaMSFT.png" data-src="https://github.com/MashaMSFT.png?size=32" alt="mashathomas"></a></li>
+											<li><a href="https://github.com/MicrosoftDocs/sql-docs/blob/live/docs/relational-databases/blob/filestream-sql-server.md" title="los 7 colaboradores" data-bi-name="contributorshowall"><span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">todas</font></font></span></a></li>
+								</ul>
+							</li>
+
+						</ul>
+
+						<nav id="center-doc-outline" class="doc-outline is-hidden-desktop" data-bi-name="intopic toc" role="navigation" aria-label="On page navigation">
+							<h3>In this article</h3>
+						<ol><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#when-to-use-filestream">When to Use FILESTREAM</a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#filestream-storage">FILESTREAM Storage</a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#dual">Accessing BLOB Data with Transact-SQL and File System Streaming Access</a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#related-tasks">Related Tasks</a></li><li><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#related-content">Related Content</a></li></ol></nav>
+
+
+
+						<!-- <content> -->
+							
+<token><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SE APLICA A:</font></font></strong> <img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/yes.png" alt="sí" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> SQL Server (solo Windows) </font></font><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/no.png" alt="no" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Azure SQL Database </font></font><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/no.png" alt="no" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Azure SQL Data Warehouse </font></font><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/no.png" alt="no" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Parallel Data Warehouse</font></font></token><p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM permite que las aplicaciones basadas en SQL Server almacenen datos no estructurados, como documentos e imágenes, en el sistema de archivos. </font><font style="vertical-align: inherit;">Las aplicaciones pueden aprovechar las valiosas API de transmisión y el rendimiento del sistema de archivos y, al mismo tiempo, mantener la coherencia transaccional entre los datos no estructurados y los datos estructurados correspondientes.  </font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM integra el Motor de base de datos del servidor SQL con un sistema de archivos NTFS o ReFS al almacenar </font><font style="vertical-align: inherit;">datos de objetos binarios grandes (BLOB) </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">varbinary (max)</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> como archivos en el sistema de archivos. </font><font style="vertical-align: inherit;">Las instrucciones de Transact-SQL pueden insertar, actualizar, consultar, buscar y hacer una copia de seguridad de los datos de FILESTREAM. </font><font style="vertical-align: inherit;">Las interfaces del sistema de archivos Win32 proporcionan acceso continuo a los datos.  </font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM utiliza la memoria caché del sistema NT para almacenar datos de archivos en caché. </font><font style="vertical-align: inherit;">Esto ayuda a reducir cualquier efecto que los datos de FILESTREAM puedan tener en el rendimiento del motor de base de datos. </font><font style="vertical-align: inherit;">El grupo de búferes de SQL Server no se usa; </font><font style="vertical-align: inherit;">por lo tanto, esta memoria está disponible para el procesamiento de consultas.  </font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM no se habilita automáticamente cuando instala o actualiza SQL Server. </font><font style="vertical-align: inherit;">Debe habilitar FILESTREAM utilizando el Administrador de configuración de SQL Server y SQL Server Management Studio. </font><font style="vertical-align: inherit;">Para usar FILESTREAM, debe crear o modificar una base de datos para contener un tipo especial de grupos de archivos. </font><font style="vertical-align: inherit;">A continuación, cree o modifique una tabla para que contenga una </font><font style="vertical-align: inherit;">columna </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">varbinary (max)</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> con el atributo FILESTREAM. </font><font style="vertical-align: inherit;">Después de completar estas tareas, puede usar Transact-SQL y Win32 para administrar los datos de FILESTREAM.  </font></font></p>
+<h2 id="when-to-use-filestream" class="heading-with-anchor"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cuándo usar FILESTREAM</font></font><a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#when-to-use-filestream"></a></h2>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En SQL Server, los BLOB pueden ser datos estándar </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">varbinary (max)</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> que almacenan los datos en tablas o </font><font style="vertical-align: inherit;">objetos </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">varbinary (max) de</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> FILESTREAM </font><font style="vertical-align: inherit;">que almacenan los datos en el sistema de archivos. </font><font style="vertical-align: inherit;">El tamaño y el uso de los datos determinan si debe usar el almacenamiento de la base de datos o el almacenamiento del sistema de archivos. </font><font style="vertical-align: inherit;">Si las siguientes condiciones son verdaderas, debería considerar usar FILESTREAM:  </font></font></p>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Los objetos que se almacenan tienen, en promedio, más de 1 MB.  </font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El acceso rápido a la lectura es importante.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Está desarrollando aplicaciones que usan un nivel medio para la lógica de la aplicación.  </font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Para objetos más pequeños, el almacenamiento de </font><font style="vertical-align: inherit;">BLOB </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">varbinary (max)</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> en la base de datos a menudo proporciona un mejor rendimiento de transmisión.  </font></font></p>
+<h2 id="filestream-storage" class="heading-with-anchor"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Almacenamiento FILESTREAM</font></font><a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#filestream-storage"></a></h2>
+<p>FILESTREAM storage is implemented as a <strong>varbinary(max)</strong> column in which the data is stored as BLOBs in the file system. The sizes of the BLOBs are limited only by the volume size of the file system. The standard <strong>varbinary(max)</strong> limitation of 2-GB file sizes does not apply to BLOBs that are stored in the file system.  </p>
+<p>To specify that a column should store data on the file system, specify the FILESTREAM attribute on a <strong>varbinary(max)</strong> column. This causes the  Database Engine to store all data for that column on the file system, but not in the database file.  </p>
+<p>FILESTREAM data must be stored in FILESTREAM filegroups. A FILESTREAM filegroup is a special filegroup that contains file system directories instead of the files themselves. These file system directories are called <em>data containers</em>. Data containers are the interface between  Database Engine storage and file system storage. </p>
+<p>When you use FILESTREAM storage, consider the following:  </p>
+<ul>
+<li>When a table contains a FILESTREAM column, each row must have a nonnull unique row ID.  </li>
+<li>Multiple data containers can be added to a FILESTREAM filegroup.  </li>
+<li>FILESTREAM data containers cannot be nested.  </li>
+<li>When you are using failover clustering, the FILESTREAM filegroups must be on shared disk resources.  </li>
+<li>FILESTREAM filegroups can be on compressed volumes.</li>
+</ul>
+<h3 id="integrated-management" class="heading-with-anchor">Integrated Management<a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#integrated-management"></a></h3>
+<p>Because FILESTREAM is implemented as a <strong>varbinary(max)</strong> column and integrated directly into the  Database Engine, most  SQL Server management tools and functions work without modification for FILESTREAM data. For example, you can use all backup and recovery models with FILESTREAM data, and the FILESTREAM data is backed up with the structured data in the database. If you do not want to back up FILESTREAM data with relational data, you can use a partial backup to exclude FILESTREAM filegroups.  </p>
+<h3 id="integrated-security" class="heading-with-anchor">Integrated Security<a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#integrated-security"></a></h3>
+<p>In  SQL Server, FILESTREAM data is secured just like other data is secured: by granting permissions at the table or column levels. If a user has permission to the FILESTREAM column in a table, the user can open the associated files.  </p>
+<div class="NOTE alert"><p>Note</p><p>Encryption is not supported on FILESTREAM data.  </p>
+</div>
+<p>Only the account under which the  SQL Server service account runs is granted permissions to the FILESTREAM container. We recommend that no other account be granted permissions on the data container.</p>
+<div class="NOTE alert"><p>Note</p><p>SQL logins will not work with FILESTREAM containers. Only NTFS or ReFS authentication will work with FILESTREAM containers.</p>
+</div>
+<h2 id="dual" class="heading-with-anchor"> Accessing BLOB Data with Transact-SQL and File System Streaming Access<a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#dual"></a></h2>
+<p>After you store data in a FILESTREAM column, you can access the files by using  Transact-SQL transactions or by using Win32 APIs.  </p>
+<h3 id="transact-sql-access" class="heading-with-anchor">Transact-SQL Access<a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#transact-sql-access"></a></h3>
+<p>By using  Transact-SQL, you can insert, update, and delete FILESTREAM data:  </p>
+<ul>
+<li>You can use an insert operation to prepopulate a FILESTREAM field with a null value, empty value, or relatively short inline data. However, a large amount of data is more efficiently streamed into a file that uses Win32 interfaces.  </li>
+<li>When you update a FILESTREAM field, you modify the underlying BLOB data in the file system. When a FILESTREAM field is set to NULL, the BLOB data associated with the field is deleted. You cannot use a  Transact-SQL chunked update, implemented as UPDATE<strong>.</strong>Write(), to perform partial updates to the data. </li>
+<li>When you delete a row or delete or truncate a table that contains FILESTREAM data, you delete the underlying BLOB data in the file system.</li>
+</ul>
+<h3 id="file-system-streaming-access" class="heading-with-anchor">File System Streaming Access<a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#file-system-streaming-access"></a></h3>
+<p>The Win32 streaming support works in the context of a  SQL Server transaction. Within a transaction, you can use FILESTREAM functions to obtain a logical UNC file system path of a file. You then use the OpenSqlFilestream API to obtain a file handle. This handle can then be used by Win32 file streaming interfaces, such as ReadFile() and WriteFile(), to access and update the file by way of the file system.  </p>
+<p>Because file operations are transactional, you cannot delete or rename FILESTREAM files through the file system.  </p>
+<p><strong>Statement Model</strong></p>
+<p>The FILESTREAM file system access models a  Transact-SQL statement by using file open and close. The statement starts when a file handle is opened and ends when the handle is closed. For example, when a write handle is closed, any possible AFTER trigger that is registered on the table fires as if an UPDATE statement is completed.</p>
+<p><strong>Storage Namespace</strong></p>
+<p>In FILESTREAM, the  Database Engine controls the BLOB physical file system namespace. A new intrinsic function, <a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-functions/pathname-transact-sql?view=sql-server-2017" data-linktype="relative-path">PathName</a>, provides the logical UNC path of the BLOB that corresponds to each FILESTREAM cell in the table. The application uses this logical path to obtain the Win32 handle and operate on the BLOB data by using regular Win32 file system interfaces. The function returns NULL if the value of the FILESTREAM column is NULL.  </p>
+<p><strong>Transacted File System Access</strong></p>
+<p>A new intrinsic function, <a href="https://docs.microsoft.com/en-us/sql/t-sql/functions/get-filestream-transaction-context-transact-sql?view=sql-server-2017" data-linktype="relative-path">GET_FILESTREAM_TRANSACTION_CONTEXT()</a>, provides the token that represents the current transaction that the session is associated with. The transaction must have been started and not yet aborted or committed. By obtaining a token, the application binds the FILESTREAM file system streaming operations with a started transaction. The function returns NULL in case of no explicitly started transaction.  </p>
+<p>All file handles must be closed before the transaction commits or aborts. If a handle is left open beyond the transaction scope, additional reads against the handle will cause a failure; additional writes against the handle will succeed, but the actual data will not be written to disk. Similarly, if the database or instance of the  Database Engine shuts down, all open handles are invalidated.  </p>
+<p><strong>Transactional Durability</strong></p>
+<p>With FILESTREAM, upon transaction commit, the  Database Engine ensures transaction durability for FILESTREAM BLOB data that is modified from the file system streaming access.  </p>
+<p><strong>Isolation Semantics</strong></p>
+<p>The isolation semantics are governed by  Database Engine transaction isolation levels. Read-committed isolation level is supported for  Transact-SQL and file system access. Repeatable read operations, and also serializable and snapshot isolations, are supported. Dirty read is not supported.  </p>
+<p>The file system access open operations do not wait for any locks. Instead, the open operations fail immediately if they cannot access the data because of transaction isolation. The streaming API calls fail with ERROR_SHARING_VIOLATION if the open operation cannot continue because of isolation violation.  </p>
+<p>To allow for partial updates to be made, the application can issue a device FS control (FSCTL_SQL_FILESTREAM_FETCH_OLD_CONTENT) to fetch the old content into the file that the opened handle references. This will trigger a server-side old content copy. For better application performance and to avoid running into potential time-outs when you are working with very large files, we recommend that you use asynchronous I/O.  </p>
+<p>If the FSCTL is issued after the handle has been written to, the last write operation will persist, and prior writes that were made to the handle are lost.</p>
+<p><strong>File System APIs and Supported Isolation Levels</strong></p>
+<p>When a file system API cannot open a file because of an isolation violation, an ERROR_SHARING_VIOLATION exception is returned. This isolation violation occurs when two transactions try to access the same file. The outcome of the access operation depends on the mode the file was opened in and the version of  SQL Server that the transaction is running on. The following table outlines the possibly outcomes for two transactions that are accessing the same file.</p>
+<div class="table-scroll-wrapper"><table>
+<thead>
+<tr>
+<th>Transaction 1</th>
+<th>Transaction 2</th>
+<th>Outcome on SQL Server 2008</th>
+<th>Outcome on SQL Server 2008 R2 and later versions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open for read.</td>
+<td>Open for read.</td>
+<td>Both succeed.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for read.</td>
+<td>Open for write.</td>
+<td>Both succeed. Write operations under transaction 2 do not affect read operations performed in transaction 1.</td>
+<td>Both succeed. Write operations under transaction 2 do not affect read operations performed in transaction 1.</td>
+</tr>
+<tr>
+<td>Open for write.</td>
+<td>Open for read.</td>
+<td>Open for transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for write.</td>
+<td>Open for write.</td>
+<td>Open for transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+<td>Open for transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+</tr>
+<tr>
+<td>Open for read.</td>
+<td>Open for SELECT.</td>
+<td>Both succeed.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for read.</td>
+<td>Open for UPDATE or DELETE.</td>
+<td>Both succeed. Write operations under transaction 2 do not affect read operations performed in transaction 1.</td>
+<td>Both succeed. Write operations under transaction 2 do not affect read operations performed in transaction 1.</td>
+</tr>
+<tr>
+<td>Open for write.</td>
+<td>open for SELECT.</td>
+<td>Transaction 2 blocks until transaction 1 commits or ends the transaction, or the transaction lock times out.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for write.</td>
+<td>Open for UPDATE or DELETE.</td>
+<td>Transaction 2 blocks until transaction 1 commits or ends the transaction, or the transaction lock times out.</td>
+<td>Transaction 2 blocks until transaction 1 commits or ends the transaction, or the transaction lock times out.</td>
+</tr>
+<tr>
+<td>Open for SELECT.</td>
+<td>Open for read.</td>
+<td>Both succeed.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for SELECT.</td>
+<td>Open for write.</td>
+<td>Both succeed. Write operations under transaction 2 do not affect transaction 1.</td>
+<td>Both succeed. Write operations under transaction 2 do not affect transaction 1.</td>
+</tr>
+<tr>
+<td>Open for UPDATE or DELETE.</td>
+<td>Open for read.</td>
+<td>The open operation on transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for UPDATE or DELETE.</td>
+<td>Open for write.</td>
+<td>The open operation on transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+<td>The open operation on transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+</tr>
+<tr>
+<td>Open for SELECT with repeatable read.</td>
+<td>Open for read.</td>
+<td>Both succeed.</td>
+<td>Both succeed.</td>
+</tr>
+<tr>
+<td>Open for SELECT with repeatable read.</td>
+<td>Open for write.</td>
+<td>The open operation on transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+<td>The open operation on transaction 2 fails with an ERROR_SHARING_VIOLATION exception.</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Write-Through from Remote Clients</strong></p>
+<p>Remote file system access to FILESTREAM data is enabled over the Server Message Block (SMB) protocol. If the client is remote, no write operations are cached by the client side. The write operations will always be sent to the server. The data can be cached on the server side. We recommend that applications that are running on remote clients consolidate small write operations to make fewer write operations using larger data size.  </p>
+<p>Creating memory mapped views (memory mapped I/O) by using a FILESTREAM handle is not supported. If memory mapping is used for FILESTREAM data, the  Database Engine cannot guarantee consistency and durability of the data or the integrity of the database.  </p>
+<h2 id="related-tasks" class="heading-with-anchor">Related Tasks<a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#related-tasks"></a></h2>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-2017" data-linktype="relative-path">Enable and Configure FILESTREAM</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-a-filestream-enabled-database?view=sql-server-2017" data-linktype="relative-path">Create a FILESTREAM-Enabled Database</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-a-table-for-storing-filestream-data?view=sql-server-2017" data-linktype="relative-path">Create a Table for Storing FILESTREAM Data</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/access-filestream-data-with-transact-sql?view=sql-server-2017" data-linktype="relative-path">Access FILESTREAM Data with Transact-SQL</a> <a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-client-applications-for-filestream-data?view=sql-server-2017" data-linktype="relative-path">Create Client Applications for FILESTREAM Data</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/access-filestream-data-with-opensqlfilestream?view=sql-server-2017" data-linktype="relative-path">Access FILESTREAM Data with OpenSqlFilestream</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/make-partial-updates-to-filestream-data?view=sql-server-2017" data-linktype="relative-path">Make Partial Updates to FILESTREAM Data</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/avoid-conflicts-with-database-operations-in-filestream-applications?view=sql-server-2017" data-linktype="relative-path">Avoid Conflicts with Database Operations in FILESTREAM Applications</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/move-a-filestream-enabled-database?view=sql-server-2017" data-linktype="relative-path">Move a FILESTREAM-Enabled Database</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/set-up-filestream-on-a-failover-cluster?view=sql-server-2017" data-linktype="relative-path">Set Up FILESTREAM on a Failover Cluster</a><br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/configure-a-firewall-for-filestream-access?view=sql-server-2017" data-linktype="relative-path">Configure a Firewall for FILESTREAM Access</a></p>
+<h2 id="related-content" class="heading-with-anchor"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">contenido relacionado</font></font><a class="docon docon-link heading-anchor" tabindex="-1" aria-hidden="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#related-content"></a></h2>
+<p><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-compatibility-with-other-sql-server-features?view=sql-server-2017" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compatibilidad de FILESTREAM con otras características de SQL Server </font></font></a>
+<br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/filestream-and-filetable-dynamic-management-views-transact-sql?view=sql-server-2017" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vistas de administración dinámica de Filestream y FileTable (Transact-SQL) </font></font></a>
+<br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/filestream-and-filetable-catalog-views-transact-sql?view=sql-server-2017" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Vistas de catálogo de Filestream y FileTable (Transact-SQL) </font></font></a>
+<br><a href="https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/filestream-and-filetable-system-stored-procedures?view=sql-server-2017" data-linktype="relative-path"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Procedimientos almacenados de Filestream y FileTable (Transact-SQL)</font></font></a></p>
+
+						<!-- </content> -->
+							
+						</main>
+
+						<!-- feedback section -->
+
+				
+								<div class="note alert feedback-system-change-alert">
+									<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nota</font></font></p>
+									<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">El sistema de comentarios para este contenido cambiará pronto. </font><font style="vertical-align: inherit;">Los viejos comentarios no serán transferidos. </font><font style="vertical-align: inherit;">Si el contenido dentro de un hilo de comentarios es importante para usted, guarde una copia. </font><font style="vertical-align: inherit;">Para obtener más información sobre el próximo cambio, </font></font><a href="https://docs.microsoft.com/teamblog/a-new-feedback-system-is-coming-to-docs"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">lo invitamos a leer nuestra publicación de blog</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .</font></font></p>
+								</div>
+								<div id="comments-container" data-bi-name="comments" role="form"><div class="fyre fyre-width-medium"><div class="fyre-widget "><div class="fyre-featured-content-wrapper" style="display: none"></div><div class="fyre-stream-stats"><div class="fyre-comment-count"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">0 comentarios</font></font></span></div><div class="fyre-help"><div class="fyre-box-wrapper"><a class="fyre-logo-link" href="http://livefyre.com/" target="_blank"><img class="fyre-logo-drop" src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/down_arrow.png" alt="Down arrow"><img class="fyre-logo-help" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Livefyre"></a><ul class="fyre-box-list"><li><a href="http://livefyre.com/" target="_blank" title="Get Livefyre">Get Livefyre</a></li><li><a href="https://livefyre.zendesk.com/hc/en-us" target="_blank" title="FAQ">FAQ</a></li></ul></div></div></div><div class="fyre-auth"><div class="fyre-login-bar"><a rel="nofollow" class="fyre-user-loggedout" aria-label="Sign in" role="button" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Registrarse</font></font></a></div><div class="fyre-live-container"><div class="fyre-livecount"><em class="fyre-stream-livecount">24 people listening</em></div><div class="fyre-listener-avatars"></div></div></div><div class="fyre-editor"><div class="fyre-editor-container fyre-editor-container-focus"><div class="fyre-editor-editable editable fyre-editor-field" id="fyre-editor-3" g_editable="true" role="textbox" contenteditable="true"><p>&nbsp;</p></div><span class="fyre-editor-spinner" style="display: none;"></span><div class="fyre-editor-preview"></div><div class="fyre-editor-media-drawer" style="display: none;"></div><div class="fyre-editor-toolbar"><div class="fyre-mention-menu fyre-mention-menu-vertical" role="menu" aria-haspopup="true" style="user-select: none; display: none;"><div class="fyre-mention-menu-filter" style="user-select: none;"><div style="user-select: none;"></div><input type="text" aria-autocomplete="list" aria-owns=":h.content-el" aria-expanded="true" tabindex="-1" style="user-select: none;"></div><div class="fyre-mention-menu-content" id=":h.content-el" style="user-select: none;"><div class="goog-control goog-control-disabled" aria-disabled="true" id=":e" style="user-select: none;"></div><div class="goog-control goog-control-disabled" aria-disabled="true" id=":f" style="user-select: none;"></div><div class="goog-control goog-control-disabled" aria-disabled="true" id=":g" style="user-select: none;"></div><div class="fyre-mention-item fyre-mention-item-livefyre" aria-hidden="true" id=":i" style="user-select: none; display: none;"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/50hc.png" class="fyre-mention-item-avatar" alt=""><h4 class="fyre-mention-item-display-name"></h4><span class="fyre-mention-item-livefyre"></span></div></div></div><div class="goog-toolbar goog-toolbar-horizontal" role="toolbar" style="user-select: none;"><div class="goog-toolbar-separator goog-inline-block" role="separator" id=":b" style="user-select: none;">&nbsp;</div><div class="goog-inline-block fyre-button-left fyre-format-button" role="button" id=":d" tabindex="0" aria-label="editor format text" style="user-select: none;"><div class="goog-inline-block fyre-button-left-outer-box"><div class="goog-inline-block fyre-button-left-inner-box"></div></div></div><div class="goog-inline-block fyre-button-left fyre-mention-button" role="button" id=":k" tabindex="0" aria-label="editor mention user" style="user-select: none;"><div class="goog-inline-block fyre-button-left-outer-box"><div class="goog-inline-block fyre-button-left-inner-box"></div></div></div><div class="goog-inline-block fyre-button-left fyre-embed-button" role="button" id=":m" tabindex="0" aria-label="editor add media" aria-hidden="true" style="user-select: none; display: none;"><div class="goog-inline-block fyre-button-left-outer-box"><div class="goog-inline-block fyre-button-left-inner-box"></div></div></div><div class="goog-inline-block fyre-button-left fyre-raw-button" role="button" id=":o" tabindex="0" aria-label="editor html embed" style="user-select: none; display: none;"><div class="goog-inline-block fyre-button-left-outer-box"><div class="goog-inline-block fyre-button-left-inner-box"></div></div></div><div class="goog-inline-block fyre-button-left fyre-follow-button" role="button" id=":q" tabindex="0" aria-label="editor follow button" style="user-select: none;"><div class="goog-inline-block fyre-button-left-outer-box"><div class="goog-inline-block fyre-button-left-inner-box"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">+ Seguir</font></font></div></div></div><div class="goog-inline-block fyre-button-right fyre-post-button fyre-post-button-new" role="button" id=":s" tabindex="0" aria-label="editor post comment" style="user-select: none;"><div class="goog-inline-block fyre-button-right-outer-box"><div class="goog-inline-block fyre-button-right-inner-box"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Publicar comentario como ...</font></font></div></div></div></div></div></div><div class="fyre-comment-preview" style="display: none;"><h5>Custom HTML Preview<span class="fyre-icon-remove"></span></h5><div class="fyre-roundedpanel-content fyre-comment-preview-content"><article class="fyre-comment-article"><div class="fyre-comment"><div class="fyre-comment-raw-html"></div></div></article></div></div></div><div class="fyre-input-box-collapsed"></div><div class="fyre-stream-header"><div class="fyre-content-loading" style="display: none;">Loading</div><div class="fyre-stream-sort"><div class="fyre-stream-sort-options"><a class="fyre-stream-sort-newest fyre-stream-sort-selected" aria-selected="true" aria-label="Sort by Newest" tabindex="0">Newest</a><span class="fyre-stream-sort-bar"> | </span><a class="fyre-stream-sort-oldest" aria-selected="false" aria-label="Sort by Oldest" tabindex="0">Oldest</a></div><a class="fyre-stream-sort-back"></a></div></div><div class="fyre-comment-stream"><div class="fyre-stream-content"></div><div class="fyre-stream-content-not-found"></div><div class="fyre-stream-more" style="display: none;"><div class="fyre-stream-more-container"><div class="fyre-text">Show More Comments</div><div class="fyre-spinner"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/snake-loader.gif" alt=""></div></div></div></div><div class="fyre-top-content-stream"></div><div class="fyre-thread-breakout-stream"></div><div class="fyre-stream-menu-container"></div></div></div></div>
+						<!-- end feedback section -->
+
+					</div>
+
+					<!--end of div.columns -->
+
+				</div>
+			
+			<!--end of .primary-holder -->
+			</section>
+
+				<div id="left-container" class="left-container column is-one-third-tablet is-one-quarter-desktop">
+					<nav class="sidebar" id="sidebar" data-bi-name="left toc" role="navigation" aria-label="Main Navigation" style="width: 267.094px; top: 121px; bottom: 24px;">
+						<button class="sidebar-header" type="button" aria-label="Close" data-bi-name="contents-collapse">
+							<span>Contents</span>
+							<span class="docon docon-navigate-close" aria-hidden="true"></span>
+						</button>
+						<div id="sidebarContent">
+							<div class="filterHolder">
+							<div class="moniker-picker" data-bi-name="moniker-picker">
+		<button class="products" id="ax-0" aria-haspopup="true" aria-controls="ax-1" aria-expanded="false">
+			<span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Versión seleccionada </font></font></span>
+			<span aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">SQL Server 2017</font></font></span>
+		</button>
+		<div class="products" id="ax-1" role="menu" aria-labelledby="ax-0" style="z-index: 5000">
+			<span aria-hidden="true">Product</span>
+			<ul aria-label="Product"><li>
+				<button class="versions" id="ax-4" role="menuitem" aria-haspopup="true" aria-controls="ax-5" aria-expanded="false" tabindex="-1">
+					All SQL
+				</button>
+				<div class="versions" id="ax-5" role="menu" aria-labelledby="ax-4">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sqlallproducts-allversions" aria-label="All SQL" data-default="true" tabindex="-1">Hide nothing</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-6" role="menuitem" aria-haspopup="true" aria-controls="ax-7" aria-expanded="false" tabindex="-1">
+					Analytics Platform System (PDW)
+				</button>
+				<div class="versions" id="ax-7" role="menu" aria-labelledby="ax-6">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=aps-pdw-2016-au7" aria-label="Analytics Platform System 2016-AU7" data-default="true" tabindex="-1">2016-AU7</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=aps-pdw-2016" aria-label="Analytics Platform System 2016-AU6" data-default="false" tabindex="-1">2016-AU6</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-8" role="menuitem" aria-haspopup="true" aria-controls="ax-9" aria-expanded="false" tabindex="-1">
+					SQL Data Warehouse
+				</button>
+				<div class="versions" id="ax-9" role="menu" aria-labelledby="ax-8">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=azure-sqldw-latest" aria-label="SQL Data Warehouse-latest" data-default="true" tabindex="-1">latest</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-10" role="menuitem" aria-haspopup="true" aria-controls="ax-11" aria-expanded="false" tabindex="-1">
+					SQL Database Logical Server
+				</button>
+				<div class="versions" id="ax-11" role="menu" aria-labelledby="ax-10">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=azuresqldb-current" aria-label="Azure SQL Database - current" data-default="true" tabindex="-1">current</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-12" role="menuitem" aria-haspopup="true" aria-controls="ax-13" aria-expanded="false" tabindex="-1">
+					SQL Database Managed Instance
+				</button>
+				<div class="versions" id="ax-13" role="menu" aria-labelledby="ax-12">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=azuresqldb-mi-current" aria-label="Azure SQL Database Managed Instance Current" data-default="true" tabindex="-1">current</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-14" role="menuitem" aria-haspopup="true" aria-controls="ax-15" aria-expanded="false" tabindex="-1">
+					SQL Server
+				</button>
+				<div class="versions" id="ax-15" role="menu" aria-labelledby="ax-14">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-ver15" aria-label="SQL Server vNext" data-default="false" tabindex="-1">vNext</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017" aria-label="SQL Server 2017" data-default="true" tabindex="-1">2017</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2016" aria-label="SQL Server 2016" data-default="false" tabindex="-1">2016</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2014" aria-label="SQL Server 2014" data-default="false" tabindex="-1">2014</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li><li>
+				<button class="versions" id="ax-16" role="menuitem" aria-haspopup="true" aria-controls="ax-17" aria-expanded="false" tabindex="-1">
+					SQL Server on Linux
+				</button>
+				<div class="versions" id="ax-17" role="menu" aria-labelledby="ax-16">
+					<span aria-hidden="true">Version</span>
+					<ul aria-label="Version"><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-linux-ver15" aria-label="SQL Server Linux vNext" data-default="false" tabindex="-1">vNext</a></li><li><a class="preserve-view" role="menuitem" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-linux-2017" aria-label="SQL Server on Linux 2017" data-default="true" tabindex="-1">2017</a></li></ul>
+				<p class="moniker-auxillary-links"></p></div>
+			</li></ul>
+		</div></div><form class="tocFilter" aria-label="Filter Table of Contents"><input placeholder="Filter by title" aria-label="Filter" data-bi-name="toc-filter" id="toc-filter" type="search" aria-controls="filterResults"><a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#" title="Clear Filter" class="clearInput"><span class="visually-hidden">Clear Filter</span></a></form><div class="emptyFilterMessage">No results</div></div>
+							<nav class="toc" role="application" aria-label="Table of Contents" id="filterResults"><ul role="tree" onclick="msDocs.functions.stopSomePropagation(event, &quot;top&quot;)"><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a onclick="msDocs.functions.stopSomePropagation(event, &quot;left&quot;)" tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/binary-large-object-blob-data-sql-server?view=sql-server-2017" data-text="overview "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Visión de conjunto</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/compare-options-for-storing-blobs-sql-server?view=sql-server-2017" data-text="compare options for storing blobs "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compare las opciones para almacenar blobs</font></font></a></li><li role="group" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sqlallproducts-allversions azuresqldb-mi-current sql-server-linux-2017 sql-server-linux-ver15" aria-expanded="true" aria-label="filestream " tabindex="0" onclick="event.stopPropagation();msDocs.functions.toggleAriaExpanded(this)" class="noSubs selectedHolder"><a tabindex="0" class="selected" aria-current="page" data-showme="true" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017" data-text="filestream "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM</font></font></a><ul role="tree" onclick="msDocs.functions.stopSomePropagation(event, &quot;top&quot;)"><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a onclick="msDocs.functions.stopSomePropagation(event, &quot;left&quot;)" tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-2017" data-text="enable and configure filestream "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Habilitar y configurar FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-a-filestream-enabled-database?view=sql-server-2017" data-text="create a filestream-enabled database "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crear una base de datos habilitada para FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-a-table-for-storing-filestream-data?view=sql-server-2017" data-text="create a table for storing filestream data "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crear una tabla para almacenar datos de FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/access-filestream-data-with-transact-sql?view=sql-server-2017" data-text="access filestream data with transact-sql "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceda a los datos de FILESTREAM con Transact-SQL</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-client-applications-for-filestream-data?view=sql-server-2017" data-text="create client applications for filestream data "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Crear aplicaciones de cliente para datos de FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/access-filestream-data-with-opensqlfilestream?view=sql-server-2017" data-text="access filestream data with opensqlfilestream "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Acceda a los datos de FILESTREAM con Open </font></font><wbr><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sql </font></font><wbr><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Filestream</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/make-partial-updates-to-filestream-data?view=sql-server-2017" data-text="make partial updates to filestream data "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hacer actualizaciones parciales a los datos de FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/avoid-conflicts-with-database-operations-in-filestream-applications?view=sql-server-2017" data-text="avoid conflicts with database operations in filestream applications "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Evite conflictos con operaciones de bases de datos en aplicaciones FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/move-a-filestream-enabled-database?view=sql-server-2017" data-text="move a filestream-enabled database "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mover una base de datos habilitada para FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/set-up-filestream-on-a-failover-cluster?view=sql-server-2017" data-text="set up filestream on a failover cluster "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configurar FILESTREAM en un clúster de conmutación por error</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/configure-a-firewall-for-filestream-access?view=sql-server-2017" data-text="configure a firewall for filestream access "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Configurar un Firewall para el acceso a FILESTREAM</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-compatibility-with-other-sql-server-features?view=sql-server-2017" data-text="filestream compatibility with other sql server features "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Compatibilidad de FILESTREAM con otras características de SQL Server</font></font></a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-ddl-functions-stored-procedures-and-views?view=sql-server-2017" data-text="filestream ddl, functions, stored procedures, and views "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">FILESTREAM DDL, Funciones, Procedimientos almacenados y Vistas</font></font></a></li></ul></li><li role="group" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions" aria-expanded="false" aria-label="filetables " tabindex="0" onclick="event.stopPropagation();msDocs.functions.toggleAriaExpanded(this)" class="noSubs"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filetables-sql-server?view=sql-server-2017" data-text="filetables "><font style="vertical-align: inherit;"></font><wbr><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tablas de </font><font style="vertical-align: inherit;">archivos</font></font></a><ul role="tree" onclick="msDocs.functions.stopSomePropagation(event, &quot;top&quot;)"><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a onclick="msDocs.functions.stopSomePropagation(event, &quot;left&quot;)" tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/enable-the-prerequisites-for-filetable?view=sql-server-2017" data-text="enable the prerequisites for filetable ">Enable the Prerequisites for File<wbr>Table</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/create-alter-and-drop-filetables?view=sql-server-2017" data-text="create, alter, and drop filetables ">Create, Alter, and Drop File<wbr>Tables</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/load-files-into-filetables?view=sql-server-2017" data-text="load files into filetables ">Load Files into File<wbr>Tables</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/work-with-directories-and-paths-in-filetables?view=sql-server-2017" data-text="work with directories and paths in filetables ">Work with Directories and Paths in File<wbr>Tables</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/access-filetables-with-transact-sql?view=sql-server-2017" data-text="access filetables with transact-sql ">Access File<wbr>Tables with Transact-SQL</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/access-filetables-with-file-input-output-apis?view=sql-server-2017" data-text="access filetables with file input-output apis ">Access File<wbr>Tables with File Input-Output APIs</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/manage-filetables?view=sql-server-2017" data-text="manage filetables ">Manage File<wbr>Tables</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filetable-schema?view=sql-server-2017" data-text="filetable schema ">File<wbr>Table Schema</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filetable-compatibility-with-other-sql-server-features?view=sql-server-2017" data-text="filetable compatibility with other sql server features ">File<wbr>Table Compatibility with Other SQL Server Features</a></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filetable-ddl-functions-stored-procedures-and-views?view=sql-server-2017" data-text="filetable ddl, functions, stored procedures, and views ">File<wbr>Table DDL, Functions, Stored Procedures, and Views</a></li></ul></li><li role="treeitem" data-moniker="sql-server-2016 sql-server-2017 sql-server-ver15 sql-server-linux-2017 sql-server-linux-ver15 azuresqldb-mi-current sqlallproducts-allversions"><a tabindex="0" href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/remote-blob-store-rbs-sql-server?view=sql-server-2017" data-text="remote blob store (rbs) "><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Remote Blob Store (RBS)</font></font></a></li></ul></nav>
+							<div class="pdfDownloadHolder" style="display: block;"><a href="https://docs.microsoft.com/en-us/sql/opbuildpdf/temp2016a/relational-databases/blob/toc.pdf?view=sql-server-2017&amp;branch=live" data-bi-name="downloadPdf"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Descargar PDF</font></font></a></div>
+						</div>
+					</nav>
+				</div>
+
+		</div>
+
+		<!--end of .mainContainer -->
+	</div>
+
+	<div id="openFeedbackContainer" class="openfeedback-container">
+		<form class="rating rating-helpful-active" action="javascript:" data-bi-name="rating">
+			<button class="rating-close docon docon-navigate-close" type="button" aria-label="Close" data-bi-name="rating-close"></button>
+			<button class="rating-button rating-mobile-feedback" type="button" data-bi-name="rating-mobile-feedback">Feedback</button>
+			<div class="rating-helpful">
+				<label><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">¿Esta página es útil?</font></font></label>
+				<button class="rating-button" type="button" data-bi-name="rating-yes" data-bi-sat="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sí</font></font></button>
+				<button class="rating-button" type="button" data-bi-name="rating-no" data-bi-sat="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">No</font></font></button>
+			</div>
+			<div class="rating-verbatim">
+				<label for="rating-0">How can we improve?</label>
+				<textarea class="rating-textarea" id="rating-0" placeholder="Please share your ideas. We welcome feedback in any language."></textarea>
+				<button class="rating-button" type="submit" data-bi-name="rating-verbatim" disabled="">Submit</button>
+			</div>
+			<div class="rating-thanks1">
+				<p>Thanks for the feedback!</p>
+				<p>Comments or suggestions? <a href="https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017#" data-bi-name="rating-verbatim-link">Tell us here</a>.</p>
+			</div>
+			<div class="rating-thanks2">
+				<span>Thanks for the feedback!</span>
+			</div>
+		</form></div>
+
+		<div class="footerContainer">
+<footer id="footer" data-bi-name="footer" class="footer-layout uhf-container has-padding" role="contentinfo">
+
+    <a data-mscc-ic="false" id="locale-selector-link" href="https://docs.microsoft.com/en-us/locale?target=https://docs.microsoft.com/en-us/sql/relational-databases/blob/filestream-sql-server?view=sql-server-2017" data-bi-name="select-locale"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Inglés Estados Unidos)</font></font></a>
+
+    <ul class="links" data-bi-name="footerlinks">
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/previous-versions/" data-bi-name="archivelink"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Documentos de la versión anterior</font></font></a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/teamblog" data-bi-name="bloglink"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Blog</font></font></a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/contribute" data-bi-name="contributorGuide"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Contribuir</font></font></a></li>
+			<li><a data-mscc-ic="false" href="https://go.microsoft.com/fwlink/?LinkId=521839" data-bi-name="privacy"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Privacidad y cookies</font></font></a></li>
+		<li><a data-mscc-ic="false" href="https://docs.microsoft.com/en-us/legal/termsofuse" data-bi-name="termsofuse"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Términos de Uso</font></font></a></li>
+		<li><a data-mscc-ic="false" href="https://aka.ms/sitefeedback" data-bi-name="feedback"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Comentario del Sitio Web</font></font></a></li>
+		<li><a data-mscc-ic="false" href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx" data-bi-name="trademarks"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Marcas registradas</font></font></a></li>
+    </ul>
+</footer>		</div>
+
+	<div class="action-panel"></div>
+
+<script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/livefyre-commenting.js.descarga" async="" defer=""></script><script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/Livefyre.js.descarga" async="" defer=""></script><script src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/open-commenting.entry.min.js.descarga" async="" defer=""></script><link rel="stylesheet" type="text/css" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/open-commenting.ui.v1.0.2-7-g1b78816.master.min.css"><link rel="stylesheet" type="text/css" href="./FILESTREAM (SQL Server) _ Microsoft Docs_files/open-commenting.ui.docs.v1.0.2-7-g1b78816.master.min.css"><div id="fyre-messenger-1"></div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./FILESTREAM (SQL Server) _ Microsoft Docs_files/translate_24dp.png" width="20" height="20" alt="Google Traductor de Google"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Texto original</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Sugiere una traducción mejor</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div><div class="lf"><div class="lf-popover lf-thread-popover"><div class="lf-thread-content lf-popover-content" role="dialog" aria-label="Sidenote Dialog"></div>
+<div class="lf-popover-arrow"></div>
+</div></div><div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

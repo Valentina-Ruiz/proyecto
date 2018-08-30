@@ -11,270 +11,391 @@
     <link rel="stylesheet" href="MDB-Free/css/style.min.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link href="MDB-Free/css/bootstrap.min.css">
 </head>
 
 <body>
     <div class="container">
         <br>
-        <h1>Biblioteca Digital</h1>
+        <h2>Biblioteca Digital</h2>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark primary-color">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark primary-color">
 
-            <!-- Collapse button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <!-- Collapse button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse">
 
-                <!-- Links -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="index.html">
-                            <i class="fa fa-home"></i>
-                            <span class="sr-only">(current)</span>
-                            <!--<a href="inicioSesion.html" class="btn btn-default">Go to Google</a>-->
-                        </a>
-                    </li>
+                    <!-- Links -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">
+                                <i class="fa fa-home"></i>
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-                </ul>
-                <!-- Links -->
+                    </ul>
+                    <!-- Links -->
 
-                <form class="form-inline">
-                    <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" id="search">
-                    </div>
-                </form>
-            </div>
-            <!-- Collapsible content -->
 
-        </nav>
+
+                    <form class="form-inline">
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Buscar" id="buscar">
+                        </div>
+                    </form>
+                </div>
+                <!-- Collapsible content -->
+
+            </nav>
+        </div>
         <!--/.Navbar-->
         <hr>
-        <div class="row">
-            <div class="col-md-9">
-                <h2>Descubre nuestras colecciones</h2>
 
-                <!-- Card deck -->
-                <div class="card-deck">
-
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="../public/img/tibetano.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <!-- leer mas button -->
-                            <a href="libro1.html" class="btn btn-light-blue btn-md">Leer mas</a>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="../public/img/jhon green.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <!--<button type="button" class="btn btn-light-blue btn-md">Read more</button>-->
-                            <!-- leer mas button -->
-                            <a href="libro2.html" class="btn btn-light-blue btn-md">Leer mas</a>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
-
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="../public/img/valquirias.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <!-- leer mas button -->
-                            <a href="libro3.html" class="btn btn-light-blue btn-md">Leer mas</a>
-
-                        </div>
-
-                    </div>
-                    <!-- Card -->
+        <div class="container">
+            <h2>Descubre nuestras colecciones</h2>
 
 
-                </div>
-                <!-- Card deck -->
+            <div class="row active-with-click" id="renderBook">
+                
 
             </div>
+        </div>
+
+        <!--seccion colecciones-->
+
+        <!--/seccion colecciones-->
+
+        <!--seccion lo mas destacado-->
+        <h2>Lo mas Destacado</h2>
+        <div class="row">
+
             <div class="col-md-3">
-                <h2>Perfil</h2>
-                <!-- Card -->
-                <div class="card card-image mb-3" style="background-image: url(https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20%2814%29.jpg);">
+                <article class="material-card Red">
+                    <h2>
+                        <span>Harry Potter</span>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="img/harrypotter.jpg" width="654" height="654">
+                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            J. K. Rowling
+                        </h4>
+                        <!-- Central Modal Medium Success -->
+                        <div class="libro">
+                            <div class="modal fade" id="centralModalSuccess4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+                                        <!--Header-->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" class="white-text">&times;</span>
+                                            </button>
+                                        </div>
 
-                    <!-- Content -->
-                    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-2 px-2">
-                        <div>
-                            <div class="text-center">
-                                <img src="../public/img/user.png" alt="placeholder.">
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <div>
+                                                <div class="embed-responsive embed-responsive-16by9" id="viewharry"></div>
+                                            </div>
+                                            <script src="view-pdf-jquery/jquery.min.js"></script>
+                                            <script src="view-pdf-jquery/pdfobject.min.js"></script>
+                                            <script>
+                                                var viewerharry = $('#viewharry');
+                                                PDFObject.embed('pdf/harryPotter.pdf', viewerharry);
+                                            </script>
+                                        </div>
+
+                                        <!--Footer-->
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
                             </div>
-                            <h3 class="card-title pt-2">
-                                <strong>Mi Cuenta</strong>
-                            </h3>
-                            <p>Ten tu Propia Colección</p>
-                            <a href="inicioSesion.html" class="btn btn-default">Inicio</a>
+                        </div>
+                        <!-- Central Modal Medium Success-->
+
+                        <!-- Button trigger modal -->
+                        <div class="text-center">
+                            <a href="" class="fa fa-fw fa-align-center" id="modaCam" data-target="#centralModalSuccess"></a>
                         </div>
                     </div>
-                    <!-- Content -->
-                </div>
-                <!-- Card -->
+
+                </article>
+            </div>
+
+            <!--Diario de Ana Frank-->
+            <div class="col-md-3">
+                <article class="material-card Red">
+                    <h2>
+                        <span>Teorema de Katherine</span>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="img/jhonGreen.jpg" width="654" height="654">
+                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            Jhon Green
+                        </h4>
+                        <!-- Central Modal Medium Success -->
+                        <div class="libro">
+                            <div class="modal fade" id="centralModalSuccess5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+                                        <!--Header-->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" class="white-text">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <div>
+                                                <div class="embed-responsive embed-responsive-16by9" id="viewKatherine"></div>
+                                            </div>
+                                            <script src="view-pdf-jquery/jquery.min.js"></script>
+                                            <script src="view-pdf-jquery/pdfobject.min.js"></script>
+                                            <script>
+                                                var viewerKatherine = $('#viewKatherine');
+                                                PDFObject.embed('pdf/elTeoremaDeKatherine.pdf', viewerKatherine);
+                                            </script>
+                                        </div>
+
+                                        <!--Footer-->
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Central Modal Medium Success-->
+
+                        <!-- Button trigger modal -->
+                        <div class="text-center">
+                            <a href="" class="fa fa-fw fa-align-center" id="modaTeo" data-target="#centralModalSuccess"></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!--El Principito-->
+            <div class="col-md-3">
+                <article class="material-card Red">
+                    <h2>
+                        <span>El Principito</span>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="img/principito.jpg" width="654" height="654">
+                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            Antoine de Saint-Exupéry
+                        </h4>
+                        <!-- Central Modal Medium Success -->
+                        <div class="libro">
+                            <div class="modal fade" id="centralModalSuccess6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+                                        <!--Header-->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" class="white-text">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <div>
+                                                <div class="embed-responsive embed-responsive-16by9" id="viewprincipito"></div>
+                                            </div>
+                                            <script src="view-pdf-jquery/jquery.min.js"></script>
+                                            <script src="view-pdf-jquery/pdfobject.min.js"></script>
+                                            <script>
+                                                var viewerprincipito = $('#viewprincipito');
+                                                PDFObject.embed('pdf/principito.pdf', viewerprincipito);
+                                            </script>
+                                        </div>
+
+                                        <!--Footer-->
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Central Modal Medium Success-->
+
+                        <!-- Button trigger modal -->
+                        <div class="text-center">
+                            <a href="" class="fa fa-fw fa-align-center" id="modaPri" data-target="#centralModalSuccess"></a>
+                        </div>
+                    </div>
+
+                </article>
+            </div>
+
+            <!--El Diario de Ana Frank-->
+            <div class="col-md-3">
+                <article class="material-card Red">
+                    <h2>
+                        <span>El Diario de Ana Frank</span>
+                    </h2>
+                    <div class="mc-content">
+                        <div class="img-container">
+                            <img class="img-responsive" src="img/anaFrank.jpg" width="654" height="654">
+                        </div>
+                    </div>
+                    <a class="mc-btn-action">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <div class="mc-footer">
+                        <h4>
+                            Ana Frank
+                        </h4>
+                        <!-- Central Modal Medium Success -->
+                        <div class="libro">
+                            <div class="modal fade" id="centralModalSuccess7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                                    <!--Content-->
+                                    <div class="modal-content">
+                                        <!--Header-->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true" class="white-text">&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <!--Body-->
+                                        <div class="modal-body">
+                                            <div>
+                                                <div class="embed-responsive embed-responsive-16by9" id="viewana"></div>
+                                            </div>
+                                            <script src="view-pdf-jquery/jquery.min.js"></script>
+                                            <script src="view-pdf-jquery/pdfobject.min.js"></script>
+                                            <script>
+                                                var viewerana = $('#viewana');
+                                                PDFObject.embed('pdf/anaFrank.pdf', viewerana);
+                                            </script>
+                                        </div>
+
+                                        <!--Footer-->
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                    <!--/.Content-->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Central Modal Medium Success-->
+
+                        <!-- Button trigger modal -->
+                        <div class="text-center">
+                            <a href="" class="fa fa-fw fa-align-center" id="modaAna" data-target="#centralModalSuccess"></a>
+                        </div>
+                    </div>
+
+                </article>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-9">
-                <h2>Lo más Destacado</h2>
-                <!-- Card deck -->
-                <div class="card-deck">
+        <!--seccion lo mas destacado-->
+    </div>
+    <hr>
+    <!--seccion definicion-->
+    <blockquote class="blockquote text-center">
+        <footer class="blockquote-footer mb-3">¿Que es una Biblioteca Digital?</footer>
+        <p class="mb-0">Se refiere a los recursos informáticos documentales, así como su impacto en el acceso y la gestión de la información.
+            Se analizan, además, las repercusiones de este nuevo modelo de biblioteca en el comportamiento y los hábitos
+            del usuario final en la búsqueda y el acceso a la información que precisa.</p>
 
-                    <!-- Card -->
-                    <div class="card mb-4">
+    </blockquote>
+    <!--/seccion definicion-->
+    </div>
 
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="../public/img/índice2.jpeg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
 
-                        <!--Card content-->
-                        <div class="card-body">
+    <button data-toggle="centralModalSuccess1">lanzar</button>
 
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <!-- leer mas button -->
-                            <a href="libro4.html" class="btn btn-light-blue btn-md">Leer mas</a>
 
-                        </div>
 
+    <div class="libro">
+        <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
                     </div>
-                    <!-- Card -->
 
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div>
+                            <div class="embed-responsive embed-responsive-16by9" id="viewtibetano"></div>
                         </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <!-- leer mas button -->
-                            <a href="libro5.html" class="btn btn-light-blue btn-md">Leer mas</a>
-
-                        </div>
-
+                        <script src="view-pdf-jquery/jquery.min.js"></script>
+                        <script src="view-pdf-jquery/pdfobject.min.js"></script>
+                        <script>
+                            var viewertibetano = $('#viewtibetano');
+                            PDFObject.embed('pdf/libroTibetano.pdf', viewertibetano);
+                        </script>
                     </div>
-                    <!-- Card -->
 
-                    <!-- Card -->
-                    <div class="card mb-4">
-
-                        <!--Card image-->
-                        <div class="view overlay">
-                            <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
-                            <a href="#!">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body">
-
-                            <!--Title-->
-                            <h4 class="card-title">Card title</h4>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                            <!-- leer mas button -->
-                            <a href="libro6.html" class="btn btn-light-blue btn-md">Leer mas</a>
-
-                        </div>
-
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                     </div>
-                    <!-- Card -->
-
                 </div>
-                <!-- Card deck -->
+                <!--/.Content-->
             </div>
         </div>
-        <hr>
-        <blockquote class="blockquote text-center">
-            <footer class="blockquote-footer mb-3">¿Que es una Biblioteca Digital?
-            </footer>
-            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam modi architecto fugit illum deleniti numquam eaque
-                voluptatibus itaque voluptatum iste a dolorem, nemo earum corporis officiis. Earum vitae harum praesentium.
-            </p>
+    </div>
+    <!-- Central Modal Medium Success-->
 
-        </blockquote>
+    <!-- Button trigger modal -->
+    <div class="text-center">
+        <a href="" class="fa fa-fw fa-align-center" id="modaTib" data-target="#centralModalSuccess"></a>
+    </div>
     </div>
 
 </body>
-<script src="MDB-Free/js/jquery-3.3.1.min.js"></script>
+<script src="view-pdf-jquery/jquery.min.js"></script>
 <script src="MDB-Free/js/bootstrap.min.js"></script>
 <script src="MDB-Free/js/mdb.js"></script>
+<script src="js/cardLibro.js"></script>
+<script src="js/index.js"></script>
 
 </html>

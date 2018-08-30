@@ -31,5 +31,12 @@ module.exports = (sequelize, type) => {
             allowNull: false
         },
 
+        ruta:{
+            type:type.STRING
+        }
+
+    },{
+        createdAt:false,
+        updatedAt:false
     });
 }

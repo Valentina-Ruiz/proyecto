@@ -1,3 +1,4 @@
+const funciones = require('./funciones');
 module.exports = function (app) {
 
     const { usuario, categoria, libro, editorialDigital, } = require('../conexion')
@@ -14,8 +15,14 @@ module.exports = function (app) {
         res.render('cuenta');
     });
 
+    app.get('/obtenerLibros' , (req, res) => {
+        funciones.obtenerLibros(res);
+        //res.render('index');
+    });
+
     app.get('/inicio', (req, res) => {
-        res.render('index');
+        funciones.mostrarLibros(res);
+        //res.render('index');
     });
 
     app.get('/inicioSesion', (req, res) => {
@@ -71,5 +78,7 @@ module.exports = function (app) {
         res.sendfile('vista/registro.html');
     });
     
+//login
+
 
 }
